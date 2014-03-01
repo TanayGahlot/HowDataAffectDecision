@@ -1,0 +1,451 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="format-detection" content="telephone=no">
+<title>Lectures and Labs | How to Process, Analyze and Visualize Data | MIT OpenCourseWare</title>
+<!-- Begin Automatic Metadata Insertion --><meta content="res-6-009-how-to-process-analyze-and-visualize-data-january-iap-2012" name="WT.cg_n">
+<meta content="Lectures and Labs" name="WT.cg_s">
+<meta content="This section contains lecture slides and lab handouts." name="Description">
+<meta content="Marcus, Adam" name="Author">
+<meta content="Wu, Eugene" name="Author">
+<meta content="data analysis,data cleaning,visualization,statistics,hypothesis testing,regression,text processing,large datasets,Hadoop,MapReduce,Graphics and Visualization,Data Mining" name="keywords">
+<meta content="Lectures and Labs | MIT OpenCourseWare" name="Search_Display">
+<meta content="Graphics and Visualization" itemprop="about">
+<meta content="Data Mining" itemprop="about">
+<!-- End Automatic Metadata Insertion --><link title="default" rel="stylesheet" type="text/css" href="../../common/styles/grid.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../common/styles/base.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../common/styles/menu.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../common/styles/jquery.bubblepopup.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../common/styles/courses.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../common/styles/courses_new.css">
+<link href="http://ocw.mit.edu/xml/ocwcc.rdf" type="application/rdf+xml" rel="metadata">
+<link rel="canonical" href="http://ocw.mit.edu/resources/res-6-009-how-to-process-analyze-and-visualize-data-january-iap-2012/lectures-and-labs">
+<link rel="apple-touch-icon" href="../../common/images/apple-touch-icon.png">
+<script type="text/javascript" src="../../common/scripts/common-utils-offline.js"></script><script type="text/javascript" src="../../common/scripts/ocw-offline.js"></script><script type="text/javascript" src="../../common/scripts/jquery.bubblepopup.min.js"></script><script type="text/javascript" src="../../common/scripts/bubble-popup-offline.js"></script>
+</head>
+<body itemscope itemtype="http://schema.org/WebPage">
+        
+	
+
+        <div id="top">
+			<div id="grid">
+				
+				
+					
+<div id="portletwrapper-6f63772e746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d686561646572" class="portletWrapper kssattr-portlethash-6f63772e746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d686561646572">
+<div class="portletStaticText portlet-static-site-header">
+<div id="banner" role="banner" class="grid_6 alpha"><a href="http://ocw.mit.edu/"><img src="../../common/images/ocw_mast.png" alt="MIT OpenCourseWare, Massachusetts Institute of Technology" class="logo"></a></div>
+<form action="http://ocw.mit.edu/jsp/subscribe.jsp?utm_source=header" method="get">
+    <div id="subscribe" role="form toolbar" class="grid_6 omega">
+    <div class="module">
+    <table class="social"><tbody><tr>
+<td class="text">Subscribe to the<br>
+                OCW Newsletter</td>
+                <td class="black"><input type="text" onclick="clearEmailBox()" onblur="fillEmailBox()" value="Enter Email" class="greytext emailField" id="email" name="fromemail"></td>
+                <td class="black"><input type="image" src="../../common/images/button_subscribe.png" alt="Subscribe" class="sub_button"></td>
+                <td>
+<a href="http://facebook.com/mitocw"><img src="../../common/images/icon_fb.png" alt="Click to visit our Facebook page."></a><a href="http://twitter.com/mitocw"><img src="../../common/images/icon_tw.png" alt="Click to visit our Twitter feed."></a>
+</td>
+            </tr></tbody></table>
+</div>
+    <p class="helplinks"><a href="http://ocw.mit.edu/help">Help</a>   |   <a href="../../common/jsp/feedback.htm">Contact Us</a></p>
+    </div>
+    <div class="clear"> </div>
+</form>
+</div>
+
+</div>
+
+
+
+
+
+<div id="mega" role="navigation" class="grid_8 alpha">        
+	<ul id="menu">
+<li id="menu_home">
+            <a href="http://ocw.mit.edu/"><img src="../../common/images/top-nav_home.png" class="home_icon" alt="Click for site home page."></a><!-- Begin Home Item -->
+        </li>
+<!-- End Home Item -->        
+        <li class="selected">
+            <a href="#" class="drop">Courses</a><!-- Begin 5 columns Item -->
+            <div class="dropdown_5columns-a mega-courses">                    
+                <div class="col_1a">
+                    <div class="row_1a">
+                        <div class="quart">
+                            <h2 class="nav">Find courses by:</h2>
+                            <ul class="nav-bullet find_by">
+<li><a href="http://ocw.mit.edu/courses/find-by-topic/">Topic</a></li>
+                                <li><a href="http://ocw.mit.edu/courses/find-by-number/">MIT Course Number</a></li>
+                                <li><a href="http://ocw.mit.edu/courses/find-by-department/">Department</a></li>
+                            </ul>
+</div>
+                        <div class="quart">
+                            <h2 class="nav">Collections</h2>
+                            <ul class="nav-bullet">
+<li><a href="http://ocw.mit.edu/courses/audio-video-courses/">Audio/Video Lectures</a></li>
+                                <li><a href="http://ocw.mit.edu/courses/new-courses/">New Courses</a></li>
+                                <li><a href="http://ocw.mit.edu/courses/most-visited-courses/">Most Visited Courses</a></li>
+                                <li><a href="http://ocw.mit.edu/courses/ocw-scholar/">OCW Scholar Courses</a></li>
+                                <li><a href="http://ocw.mit.edu/resources">Supplemental Resources</a></li>
+                            </ul>
+</div>
+                        <div class="clear"> </div>
+                    </div>
+                    <div class="row_1b">
+                        <h2 class="nav">Cross-Disciplinary Topic Lists</h2>
+                        <div class="quart">
+                        <ul class="nav-bullet">
+<li><a href="http://ocw.mit.edu/courses/energy-courses">Energy</a></li>
+                            <li><a href="http://ocw.mit.edu/courses/entrepreneurship">Entrepreneurship</a></li>
+                            <li><a href="http://ocw.mit.edu/courses/environment-courses">Environment</a></li>
+                        </ul>
+</div>    
+                        <div class="quart">
+                        <ul class="nav-bullet">
+<li><a href="http://ocw.mit.edu/courses/life-sciences">Life Sciences</a></li>
+                            <li><a href="http://ocw.mit.edu/courses/transportation-courses">Transportation</a></li>
+                        </ul>
+</div>
+                        <div class="clear"> </div>
+                    </div>
+                    <div class="clear"> </div>
+                </div>
+                <div class="col_1b">
+                    <h2 class="nav">Translated Courses</h2>
+                    <ul class="nav-bullet">
+<li><a href="http://ocw.mit.edu/courses/translated-courses/traditional-chinese">繁體字 / Traditional Chinese</a></li>
+                        <li><a href="http://ocw.mit.edu/courses/translated-courses/simplified-chinese">简体字 / Simplified Chinese</a></li>
+                        <li><a href="http://ocw.mit.edu/courses/translated-courses/spanish">Español / Spanish</a></li>
+                        <li><a href="http://ocw.mit.edu/courses/translated-courses/portuguese">Português / Portuguese</a></li>
+                        <li><a href="http://ocw.mit.edu/courses/translated-courses/thai">ภาษาเขียน / Thai</a></li>
+                        <li><a href="http://ocw.mit.edu/courses/translated-courses/persian">فارسی / Persian</a></li>
+                        <li><a href="http://ocw.mit.edu/courses/translated-courses/turkish">Türkçe / Turkish</a></li>
+                        <li><a href="http://ocw.mit.edu/courses/translated-courses/korean">(비디오)한국 / Korean</a></li>
+                    </ul>
+</div>
+            </div>
+        </li>
+        <li>
+            <a href="" class="drop">About</a>
+            <div class="dropdown_1column-a">
+                <div class="col_1">
+                    <ul class="nav-bullet mega-div-bottom">
+<li><a href="http://ocw.mit.edu/about/">About MIT OpenCourseWare</a></li>
+                    </ul>
+<ul class="nav-bullet mega-div-bottom">
+<li><a href="http://ocw.mit.edu/about/site-statistics/">Site Stats</a></li>
+                        <li><a href="http://ocw.mit.edu/about/ocw-stories/">OCW Stories</a></li>
+                        <li><a href="http://ocw.mit.edu/about/ocw-consortium/">OpenCourseWare Consortium</a></li>
+                    </ul>
+<ul class="nav-bullet mega-div-bottom">
+<li><a href="http://ocw.mit.edu/about/media-coverage/">Media Coverage</a></li>
+                        <li><a href="http://ocw.mit.edu/about/newsletter/">Newsletter</a></li>
+                        <li><a href="http://ocw.mit.edu/about/media-coverage/press-releases/">Press Releases</a></li>
+                    </ul>
+<ul class="nav-bullet">
+<li><a href="http://ocw.mit.edu/about/next-decade/">OCW's Next Decade</a></li>
+                    </ul>
+</div>
+            </div>  
+        </li>    
+        <li>
+            <a href="" class="drop">Donate</a>        
+            <div class="dropdown_1column-a">
+                    <div class="col_1">
+                        <ul class="nav-bullet mega-div-bottom">
+<li><a href="http://ocw.mit.edu/donate/">Make a Donation</a></li>
+                            <li><a href="http://ocw.mit.edu/donate/why-donate/">Why Donate?</a></li>
+                            <li><a href="http://ocw.mit.edu/donate/ocw-course-champions-program/">Become a Course Champion</a></li>
+                            <li><a href="http://ocw.mit.edu/donate/our-supporters/">Our Supporters</a></li>
+                            <li><a href="http://ocw.mit.edu/donate/other-ways-to-contribute/">Other Ways to Contribute</a></li>
+                            <li><a href="http://ocw.mit.edu/donate/shop-ocw">Shop OCW</a></li>
+                        </ul>
+<ul class="nav-bullet">
+<li><a href="http://ocw.mit.edu/support/">Become a Corporate Sponsor</a></li>
+                        </ul>
+</div>
+            </div>            
+        </li>        
+        <li>
+            <a href="" class="drop">Featured Sites</a>        
+            <div class="dropdown_1column-a">
+                <div class="col_1">
+                    <ul class="nav-bullet mega-div-bottom">
+<li><a href="http://ocw.mit.edu/high-school/">Highlights for High School</a></li>
+                    </ul>
+<ul class="nav-bullet mega-div-top">
+<li><a href="http://www.edx.org">edX</a></li>
+                    </ul>
+</div>
+            </div>            
+        </li>
+    </ul>
+</div>
+<div id="search" role="search" class="grid_4 omega">
+    <form method="get" action="../../common/search/AdvancedSearch.htm">
+        <input type="hidden" value="ocw" name="site"><input type="hidden" value="mit" name="client"><input type="hidden" value="*" name="getfields"><input type="hidden" value="xml_no_dtd" name="output"><input type="hidden" value="http://ocw.mit.edu/search/google-ocw.xsl" name="proxystylesheet"><input type="hidden" value="1" name="proxyreload"><input type="hidden" value="i" name="as_dt"><input type="hidden" value="utf-8" name="oe"><input type="hidden" value="web" name="departmentName"><input type="hidden" value="0" name="filter"><input type="hidden" name="courseName"><table class="search"><tbody><tr>
+<td class="black"><input type="text" onblur="fillSearchBox()" onfocus="clearSearchBox()" maxlength="255" value="Search" name="q" class="greytext searchField" id="terms"></td> 			 
+                    <td class="black"><input type="image" src="../../common/images/button_search.png" name="btnG" class="sub_button"></td>			 
+                    <td class="text2"><a href="../../common/search/AdvancedSearch.htm">Advanced<br>Search</a></td>
+                </tr></tbody></table>
+</form>
+</div>
+<div class="clear"></div>
+<!-- *end header* -->  
+
+				
+				
+			</div>
+<!-- top grid end -->
+		</div>
+<!-- top end -->
+			
+		<div id="center">
+         <div id="grid">
+		     <div id="left-section">
+                 <div id="breadcrumb">
+                      <p>
+
+    <a href="http://ocw.mit.edu/">Home</a>
+    
+        »
+        
+    
+    
+        
+            <a href="http://ocw.mit.edu/resources">Supplemental Resources</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="../../contents/index.htm">How to Process, Analyze and Visualize Data</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            
+            
+            Lectures and Labs
+         
+    
+</p>
+
+                 </div>
+                 <div class="clear"></div>
+                 <div id="section_title">
+           			<h1 class="title" itemprop="name" property="dct:title">
+        <span class="" id="parent-fieldname-title">
+            Lectures and Labs
+        </span>
+    </h1>
+           	     </div>
+           	     <div class="clear"></div>
+           	     <div id="course_wrapper_section">
+           	     	 <div id="course_nav">
+           			 	
+
+
+
+<script language="javascript" type="text/javascript">
+function toggleMenu(objID) {
+  if (!document.getElementById) return;
+  var ob = document.getElementById(objID);
+  ob.className = (ob.className == 'selected')?'': 'selected';
+}
+function toggleClass(id)
+{
+  var divtoggleClass= document.getElementById(id);
+  divtoggleClass.className = (divtoggleClass.className == 'mO')?'mC': 'mO';
+  return false;
+}
+function changeAlt(id)
+{
+  id.alt = (id.alt == 'Expand Menu')?'Collapse Menu' : 'Expand Menu';
+  id.title = (id.title == 'Expand Menu')?'Collapse Menu' : 'Expand Menu';
+}
+</script><!--Left Nav Starts --><ul>
+<li class="">
+			   			<a href="../../contents/index.htm">
+		                  Resource Home  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../contents/syllabus/index.htm">
+		                  Syllabus  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="selected">
+			   			<a href="../../contents/lectures-and-labs/index.htm">
+		                  Lectures and Labs  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../contents/datasets-and-code/index.htm">
+		                  Datasets and Code  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    
+		    
+         	
+	<!--second tal block close-->  
+	
+</ul>
+<!--Left Nav Ends -->
+</div>
+           		     <div id="course_inner_section">
+           		     	
+	                    
+        <div class="" id="parent-fieldname-text">
+            <p>The lab handouts below contain references to code and other files, which can be found in the <a href="../../contents/datasets-and-code/index.htm">Datasets and Code</a> section.</p> <h2 class="subhead">Day 0: Setup</h2> <p>Before the class, please set up the environment. You will need to install some software and packages and download some datasets to get started. You can find the datasets in the <a href="../../contents/datasets-and-code/index.htm">Datasets and Code</a> section. Note that the presidential contributions dataset can be downloaded from either the Federal Election Commission link given on page 4 of the setup instructions, or from the Datasets and Code section.</p> <p>Lecture (<a href="../../contents/lectures-and-labs/MITRES_6_009IAP12_lec0.pdf">PDF</a>)<br> Setup instructions (<a href="../../contents/lectures-and-labs/MITRES_6_009IAP12_setup.pdf">PDF</a>)</p> <h2 class="subhead">Day 1: Let's play with some data!</h2> <p>Today we will analyze the presidential campaign contributions dataset. We will go through the full process of downloading a new dataset, the initial steps of understanding the data, visualizing it, coming up with hypotheses, and exploring the dataset. Hopefully, you'll learn something new about presidential elections.</p> <p>Lecture (<a href="../../contents/lectures-and-labs/MITRES_6_009IAP12_lec1.pdf">PDF - 1.0MB</a>)<br> Lab handout (<a href="../../contents/lectures-and-labs/MITRES_6_009IAP12_lab1.pdf">PDF</a>)</p> <h2 class="subhead">Day 2: Visualizations</h2> <p>Today, we will do more with matplotlib: bar graphs, line graphs, box plots, scatter plots, and choropleth (map) plots. We will also learn to create figures with multiple sub-figures, and customize labels, colors, error bars, etc. We will give you a basic understanding of how plotting works, which should be enough for a majority of the charts that you will want to create.</p> <p>Lecture (<a href="../../contents/lectures-and-labs/MITRES_6_009IAP12_lec2.pdf">PDF</a>)<br> Lab handout (<a href="../../contents/lectures-and-labs/MITRES_6_009IAP12_lab2.pdf">PDF</a>)</p> <h2 class="subhead">Day 3: Hypothesis Testing</h2> <p>So far, we've plotted and visualized data in various ways. Today, we'll see how to statistically back up some of the observations we've made in looking at our data. Statistics is a tool that helps separate news-making data-backed stories from one-off anecdotes. Usually, both kinds of stories start with a hunch, and statistics helps us quantify the evidence backing that hunch.</p> <p>Whenever you have a hunch (a <em>hypothesis</em> in statistician-speak), the first thing to do is to look at some summary statistics (e.g., averages), and explore the data graphically as we did yesterday. If the visualizations seem to support your hunch, you will move into hypothesis-testing mode.</p> <p>Lecture (<a href="../../contents/lectures-and-labs/MITRES_6_009IAP12_lec3.pdf">PDF</a>)<br> Lab handout (<a href="../../contents/lectures-and-labs/MITRES_6_009IAP12_lab3a.pdf">PDF</a>)</p> <h2 class="subhead">Day 3 (cont.): Regression</h2> <p>We hear about correlations every day. Various health outcomes are correlated with socioeconomic status. Iodine supplementation in infants is correlated with higher IQ. Models are everywhere as well. An object falling for <em>t</em> seconds moves .5<em>gt</em><sup>2</sup> meters. You can calculate correlation and build approximate models using several techniques, but the simplest and most popular technique by far is linear regression. Let's see how it works!</p> <p>Lab handout (<a href="../../contents/lectures-and-labs/MITRES_6_009IAP12_lab3b.pdf">PDF</a>)<br> County Health Rankings: explanation of .csv files (<a href="../../contents/lectures-and-labs/csv_readme.txt">TXT</a>)</p> <h2 class="subhead">Day 4: Text Processing</h2> <p>Today we will discuss text processing. Our exercises will be grounded in an email dataset (either yours or Kenneth Lay's). After today, you will be able to compute the most important terms in a particular email, find emails similar to the one you are reading, and find people that tend to send you similar emails. And since emails are just text documents, this applies to any text document you can think of, like webpages, articles, or tweets.</p> <p>Lecture (<a href="../../contents/lectures-and-labs/MITRES_6_009IAP12_lec4.pdf">PDF</a>)<br> Lab handout (<a href="../../contents/lectures-and-labs/MITRES_6_009IAP12_lab4.pdf">PDF</a>)</p> <h2 class="subhead">Day 5: Processing Large Datasets</h2> <p>On day 4, we saw how to process text data using the Enron email dataset. In reality, we only processed a small fraction of the entire dataset: about 15 megabytes of Kenneth Lay's emails. The entire dataset containing many Enron employees' mailboxes is 1.3 gigabytes, about 87 times than what we worked with. And what if we worked on GMail, Yahoo! Mail, or Hotmail? We'd have several petabytes worth of emails, at least 71 million times the size of the data we dealt with.</p> <p>All that data would take a while to process, and it certainly couldn't fit on or be crunched by a single laptop. We'd have to store the data on many machines, and we'd have to process it (tokenize it, calculate TF-IDF) using multiple machines. Let's start with a simple word count example, then rewrite it in MapReduce, then run MapReduce on 20 machines using Amazon's EMR, and finally write a big-person MapReduce workflow to calculate TF-IDF.</p> <p>Lecture (<a href="../../contents/lectures-and-labs/MITRES_6_009IAP12_lec5.pdf">PDF</a>)<br> Lab handout (<a href="../../contents/lectures-and-labs/MITRES_6_009IAP12_lab5.pdf">PDF</a>)</p> <h3 class="subsubhead">AWS S3 Instructions</h3> <p>In the AWS S3 section of the lab handout, the link to the full Enron dataset no longer works (it was only intended for in-class use).  Instead, download the Enron email dataset from the <a href="../../contents/datasets-and-code/index.htm">Datasets and Code</a> section.  After unzipping the files, use encode_emails.py (<a href="../../contents/lectures-and-labs/encode_emails.py">PY</a>) to encode the emails into a json format that the mrjob MapReduce library can read:</p> <blockquote><p>python encode_emails.py [input root folder] [output folder]</p></blockquote> <p>The script will traverse through the [input root folder] and encode every text document (email) into a json encoded document stored at the corresponding location under the [output folder].</p> <h2 class="subhead">Day 6: Course Recap</h2> <p>This day also contained student presentations, which are not included on OCW.</p> <p>Lecture (<a href="../../contents/lectures-and-labs/MITRES_6_009IAP12_lec6.pdf">PDF</a>)</p>
+            
+        </div>
+    
+	                    
+	        			
+	                    
+	                    
+	                    	
+        <div class="" id="parent-fieldname-bottomtext">
+            
+            
+        </div>
+    
+	                                       
+            			
+    			    </div>
+<!--Course_inner_section tag close -->
+           		     <div class="clear"></div>
+ 				 </div>
+<!--Course_wrapper tag close -->             
+ 			 </div>
+<!--left tag close -->
+ 			                 
+         </div>
+<!--grid tag close --> 
+      </div>
+		
+		<div id="bottom">
+			<div id="grid">
+				
+<div id="portletwrapper-6f63772e626f74746f6d706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d666f6f746572" class="portletWrapper kssattr-portlethash-6f63772e626f74746f6d706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d666f6f746572">
+<div class="portletStaticText portlet-static-site-footer"><div id="bottom">
+<div id="grid">
+<!-- *begin footer* -->
+<div role="navigation sitemap" id="footer">
+<div class="grid_2 alpha" id="foot-c1">
+<h4 class="footer">Courses</h4>
+<ul class="foot-bullet">
+<li><a href="http://ocw.mit.edu/courses/find-by-topic/">Find by Topic</a></li>
+    <li><a href="http://ocw.mit.edu/courses/find-by-number/">Find by Course Number</a></li>
+    <li><a href="http://ocw.mit.edu/courses/find-by-department/">Find by Department</a></li>
+    <li><a href="http://ocw.mit.edu/courses/audio-video-courses/">Audio/Video Courses</a></li>
+    <li><a href="http://ocw.mit.edu/courses/ocw-scholar/">OCW Scholar Courses</a></li>
+    <li><a href="http://ocw.mit.edu/courses/most-visited-courses/">Most Visited Courses</a></li>
+    <li><a href="http://ocw.mit.edu/courses/new-courses/">New Courses</a></li>
+    <li><a href="http://ocw.mit.edu/courses/translated-courses/">Translated Courses</a></li>
+    <li><a href="http://ocw.mit.edu/resources/">Supplemental Resources</a></li>
+</ul>
+</div>
+<div class="grid_2" id="foot-c2">
+<h4 class="footer">About</h4>
+<ul class="foot-bullet">
+<li><a href="http://ocw.mit.edu/about/">About OpenCourseWare</a></li>
+    <li><a href="http://ocw.mit.edu/about/site-statistics/">Site Stats</a></li>
+    <li><a href="http://ocw.mit.edu/about/ocw-stories/">OCW Stories</a></li>
+    <li><a href="http://ocw.mit.edu/about/ocw-consortium/">OCW Consortium</a></li>
+    <li><a href="http://ocw.mit.edu/about/media-coverage/">Media Coverage</a></li>
+    <li><a href="http://ocw.mit.edu/about/newsletter/">Newsletter</a></li>
+    <li><a href="http://ocw.mit.edu/about/media-coverage/press-releases/">Press Releases</a></li>
+    <li><a href="http://ocw.mit.edu/about/next-decade/">OCW's Next Decade</a></li>
+</ul>
+</div>
+<div class="grid_2" id="foot-c3">
+<h4 class="footer">Donate</h4>
+<ul class="foot-bullet">
+<li><a href="http://ocw.mit.edu/donate">Make a Donation</a></li>
+    <li><a href="http://ocw.mit.edu/donate/why-donate/">Why Donate?</a></li>
+    <li><a href="http://ocw.mit.edu/donate/ocw-course-champions-program/">Become a Course Champion</a></li>
+    <li><a href="http://ocw.mit.edu/donate/our-supporters/">Our Supporters</a></li>
+    <li><a href="http://ocw.mit.edu/donate/other-ways-to-contribute/">Other Ways to Contribute</a></li>
+    <li><a href="http://ocw.mit.edu/donate/shop-ocw/">Shop OCW</a></li>
+    <li><a href="http://ocw.mit.edu/support/">Become a Corporate Sponsor</a></li>
+</ul>
+</div>
+<div class="grid_2" id="foot-c4">
+<h4 class="footer">Featured Sites</h4>
+<ul class="foot-bullet">
+<li><a href="http://ocw.mit.edu/high-school/">Highlights for High School</a></li>
+    <li><a href="https://www.edx.org/">edX</a></li>
+</ul>
+<h4 style="margin-top: 14px;" class="footer">Tools</h4>
+<ul class="foot-bullet">
+<li><a href="http://ocw.mit.edu/help/">Help &amp; FAQs</a></li>
+    <li><a href="../../common/jsp/feedback.htm">Contact Us</a></li>
+    <li><a href="../../common/search/AdvancedSearch.htm">Advanced Search</a></li>
+    <li><a href="http://ocw.mit.edu/help/site-map/">Site Map</a></li>
+    <li><a href="../../common/terms/index.htm">Privacy &amp; Terms of Use</a></li>
+</ul>
+</div>
+<div itemtype="http://schema.org/CollegeOrUniversity" itemscope="" itemprop="publisher" class="grid_4 omega" id="foot-c5">
+<h4 class="footer">About <span itemprop="name">MIT OpenCourseWare</span>
+</h4>
+<p itemprop="description" class="accent">MIT OpenCourseWare makes the materials used in the teaching of almost all of MIT's subjects available on the Web, free of charge. With more than 2,000 courses available, OCW is delivering on the promise of open sharing of knowledge.</p>
+</div>
+<div class="grid_8 alpha" id="foot-copy">
+<a href="http://web.mit.edu"><img style="width: 195px; height: 44px;" alt="Massachusetts Institute of Technology logo and name." src="../../common/images/logo_mit.png"></a>                 <a href="http://www.ocwconsortium.org/"><img style="width: 80px; height: 44px;" alt="OpenCourseWare Consortium logo." src="../../common/images/logo_ocwc.gif"></a>                 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/us/deed.en_US" itemprop="useRightsUrl" rel="license"><img style="width: 126px; height: 44px;" alt="Creative Commons logo with terms BY-NC-SA." src="../../common/images/cc_by-nc-sa.png"></a>
+<p class="copyright">© 2001–2012<br>
+Massachusetts Institute of Technology</p>
+<p style="font-size: 0.9em; margin-bottom: 15px;">Your use of the MIT OpenCourseWare site and materials is subject to our <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/us/deed.en_US">Creative Commons License</a> and other <a rel="cc:morePermissions" href="../../common/terms/index.htm">terms of use</a>.</p>
+</div>
+<div class="grid_4 omega" id="foot-support">
+<h4 class="footer">Our Corporate Supporters</h4>
+<img alt="Dow logo." style="height: 53px; width: 145px; margin: 10px 10px 10px 0;" src="../../common/images/logo_dow.png"><img alt="Lockheed Martin logo." style="height: 53px; width: 145px; margin: 10px 0;" src="../../common/images/logo_lockheed.png"><br><img alt="Mathworks logo." style="height: 53px; width: 145px; margin-right: 10px;" src="../../common/images/logo_mathworks.png"><img alt="Ab Initio logo." style="height: 53px; width: 145px;" src="../../common/images/logo_abinitio.png">
+</div>
+</div>
+</div>
+</div></div>
+
+</div>
+
+
+
+
+
+                
+			</div> <!-- bottom grid end -->
+		</div>
+<!-- bottom end -->
+		
+		
+   </body>
+</html>

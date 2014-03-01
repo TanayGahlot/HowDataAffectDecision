@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<module codename="org.geotools">
+    <module_version install_time="1369562245170" last="true" origin="Gephi Thirdparties Plugins" specification_version="8.4">
+        <file crc="1203546605" name="config/Modules/org-geotools.xml"/>
+        <file crc="245562548" name="modules/ext/gt-api-8.4.jar"/>
+        <file crc="2159275523" name="modules/ext/gt-data-8.4.jar"/>
+        <file crc="2553775074" name="modules/ext/gt-main-8.4.jar"/>
+        <file crc="1464503098" name="modules/ext/gt-metadata-8.4.jar"/>
+        <file crc="616470218" name="modules/ext/gt-opengis-8.4.jar"/>
+        <file crc="1585504739" name="modules/ext/gt-shapefile-8.4.jar"/>
+        <file crc="1631782533" name="modules/ext/jts-1.12.jar"/>
+        <file crc="836176365" name="modules/org-geotools.jar"/>
+    </module_version>
+</module>

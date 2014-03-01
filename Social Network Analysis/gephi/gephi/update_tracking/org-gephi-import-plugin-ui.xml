@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module codename="org.gephi.import.plugin.ui">
+    <module_version install_time="1357240145952" last="true" origin="installer" specification_version="0.8.2">
+        <file crc="4207916504" name="config/Modules/org-gephi-import-plugin-ui.xml"/>
+        <file crc="1515679546" name="modules/org-gephi-import-plugin-ui.jar"/>
+    </module_version>
+</module>

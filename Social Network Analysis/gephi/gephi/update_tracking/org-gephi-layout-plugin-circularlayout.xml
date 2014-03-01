@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<module codename="org.gephi.layout.plugin.circularlayout">
+    <module_version install_time="1369562245140" last="true" origin="Gephi Thirdparties Plugins" specification_version="0.7">
+        <file crc="95798091" name="config/Modules/org-gephi-layout-plugin-circularlayout.xml"/>
+        <file crc="466849191" name="modules/org-gephi-layout-plugin-circularlayout.jar"/>
+    </module_version>
+</module>

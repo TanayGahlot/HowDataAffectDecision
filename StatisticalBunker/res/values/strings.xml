@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">StatisticalBunker</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="currentAttendance">Current Attendance</string>
+    <string name="expectedLecture">Expected Lectures(Total)</string>
+    <string name="requiredPercentage">Required Percentage</string>
+    <string name="cutoffAttendance">Cutoff Attendance(%)</string>
+    <string name="off ">OF</string>
+    <string name="bunk">Bunk Affordability</string>
+   
+
+</resources>

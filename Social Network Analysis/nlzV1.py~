@@ -1,0 +1,24 @@
+#oggpnosn
+#hkhr
+
+from pymongo import Connection
+c=Connection()
+
+#collectiog Tanay Gahlots Data 
+dbh=C["Facebook_Friends"]
+friends=dbh.friend.find()
+for friend in friends:
+    g.add_edge("Tanay Gahlot",friend["name"])
+
+#collecting Anuja's Data
+dbh=C["FAnuja"]
+friends=dbh.friend.find()
+for friend in friends:
+    g.add_edge("Anuja Deshpande",friend["name"])
+
+
+#collecting Amey's Data
+dbh=C["FAmey"]
+friends=dbh.friend.find()
+for friend in friends:
+    g.add_edge("Amey Kamat",friend["name"])

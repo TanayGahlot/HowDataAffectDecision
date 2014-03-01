@@ -15,4 +15,4 @@ allOfIt = get_ipython().getoutput(u'cat *|grep #')
 allOfIt
 allOfIt = get_ipython().getoutput(u'cat *|grep "#"')
 allOfIt
-exit()
+#exit()

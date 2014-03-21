@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<!-- saved from url=(0058)http://127.0.0.1:8888/49c9511b-8c2a-4875-ad73-512745ac82b9 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<title>analysisTools</title>
+
+<script type="text/javascript" src="./analysisTools_files/MathJax.js" charset="utf-8"></script>
+
+<script type="text/javascript">
+// MathJax disabled, set as null to distingish from *missing* MathJax,
+// where it will be undefined, and should prompt a dialog later.
+window.mathjax_url = "mathjax/MathJax.js";
+</script>
+<link rel="stylesheet" href="./analysisTools_files/jquery-wijmo.css" type="text/css">
+<link rel="stylesheet" href="http://127.0.0.1:8888/static/codemirror/lib/codemirror.css">
+<link rel="stylesheet" href="http://127.0.0.1:8888/static/codemirror/mode/markdown/markdown.css">
+<link rel="stylesheet" href="http://127.0.0.1:8888/static/codemirror/mode/rst/rst.css">
+<link rel="stylesheet" href="http://127.0.0.1:8888/static/codemirror/theme/ipython.css">
+<link rel="stylesheet" href="http://127.0.0.1:8888/static/codemirror/theme/default.css">
+<link rel="stylesheet" href="http://127.0.0.1:8888/static/prettify/prettify.css">
+<link rel="stylesheet" href="./analysisTools_files/boilerplate.css" type="text/css">
+<link rel="stylesheet" href="./analysisTools_files/layout.css" type="text/css">
+<link rel="stylesheet" href="./analysisTools_files/base.css" type="text/css">
+<link rel="stylesheet" href="./analysisTools_files/notebook.css" type="text/css">
+<link rel="stylesheet" href="./analysisTools_files/renderedhtml.css" type="text/css">
+
+
+<meta name="read_only" content="False">
+<style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-family: serif; font-size: 85%; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 5px 0px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -khtml-border-radius: 5px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 1px 2em; background: transparent}
+.MathJax_MenuTitle {background-color: #CCCCCC; margin: -5px 0 0 0; text-align: center; font-style: italic; font-size: 80%; color: #444444; padding: 2px 0; overflow: hidden}
+.MathJax_MenuArrow {position: absolute; right: .5em; color: #666666}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuRadioCheck {position: absolute; left: .7em}
+.MathJax_MenuLabel {padding: 1px 2em 3px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #DDDDDD; margin: 4px 3px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: #606872; color: white}
+</style><style type="text/css">#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style></head>
+<body data-project="/home/tanay/Desktop/Project/How" data="" affect="" decision="" social="" network="" analysis="" data-notebook-id="49c9511b-8c2a-4875-ad73-512745ac82b9" data-base-project-url="/" data-base-kernel-url="/">
+<div id="header" class="border-box-sizing" style="display: block;">
+<span id="ipython_notebook"><h1><a href="http://127.0.0.1:8888/" alt="dashboard"><img src="./analysisTools_files/ipynblogo.png" alt="IPython Notebook"></a></h1></span>
+<span id="save_widget" style="margin-left: 310px;">
+<input type="text" id="notebook_name" size="20" class="ui-widget ui-widget-content" tabindex="1" value="analysisTools">
+<button id="save_notebook" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button" aria-disabled="false" title="Save the Notebook"><span class="ui-button-text"><u>S</u>ave</span></button>
+</span>
+<span id="quick_help_area">
+<button id="quick_help" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button" aria-disabled="false" title="Show/Hide the keyboard shortcuts for the IPython Notebook"><span class="ui-button-text">Quick<u>H</u>elp</span></button>
+</span>
+<span id="login_widget">
+
+
+
+</span>
+<span id="kernel_status" class="ui-widget status_idle" title="The kernel execution status. If &#39;Busy&#39;, the kernel is currently running code. If &#39;Idle&#39;, it is available for execution.">Idle</span>
+</div>
+<div id="main_app" class="border-box-sizing ui-widget ui-widget-content" style="height: 569px; display: block;">
+<div id="left_panel" class="border-box-sizing ui-widget" style="width: 300px; height: 567px;">
+<div id="notebook_section">
+<div class="section_header ui-widget ui-state-default ui-helper-clearfix" title="Click to Show/Hide Section">
+<h3>Notebook</h3>
+</div>
+<div class="section_content ui-widget ui-helper-clearfix">
+<div class="section_row ui-helper-clearfix">
+<span id="new_open" class="section_row_buttons ui-buttonset">
+<button id="new_notebook" class="ui-button ui-widget ui-state-default ui-button-text-only ui-corner-left" role="button" aria-disabled="false" title="Create a new notebook"><span class="ui-button-text">New</span></button>
+<button id="open_notebook" class="ui-button ui-widget ui-state-default ui-button-text-only ui-corner-right" role="button" aria-disabled="false" title="Open an existing notebook"><span class="ui-button-text">Open</span></button>
+</span>
+<span class="section_row_header">Actions</span>
+</div>
+<div class="section_row ui-helper-clearfix">
+<span>
+<select id="download_format" class="ui-widget ui-widget-content">
+<option value="json" class="ui-widget ui-widget-content">ipynb</option>
+<option value="py" class="ui-widget ui-widget-content">py</option>
+</select>
+</span>
+<span class="section_row_buttons">
+<button id="download_notebook" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button" aria-disabled="false" title="Download the notebook in the specified format, either full ipynb notebook or as a Python script. Make sure to save before downloading, to ensure the file is up to date."><span class="ui-button-text">Download</span></button>
+</span>
+</div>
+<div class="section_row ui-helper-clearfix">
+<span class="section_row_buttons">
+<span id="print_widget">
+<button id="print_notebook" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button" aria-disabled="false" title="Open a new window with printer-friendly HTML of the Notebook. Note that this is incomplete, and may not produce perfect printed output. Make sure to save before printing, to ensure the output is up to date."><span class="ui-button-text">Print</span></button>
+</span>
+</span>
+</div>
+</div>
+</div>
+<div id="cell_section">
+<div class="section_header ui-widget ui-state-default ui-helper-clearfix" title="Click to Show/Hide Section">
+<h3>Cell</h3>
+</div>
+<div class="section_content ui-widget ui-helper-clearfix">
+<div class="section_row ui-helper-clearfix">
+<span class="section_row_buttons">
+<button id="delete_cell" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button" aria-disabled="false" title="Delete the selected cell"><span class="ui-button-text"><u>D</u>elete</span></button>
+</span>
+<span class="section_row_header">Actions</span>
+</div>
+<div class="section_row ui-helper-clearfix">
+<span id="cell_type" class="section_row_buttons ui-buttonset">
+<button id="to_code" class="ui-button ui-widget ui-state-default ui-button-text-only ui-corner-left" role="button" aria-disabled="false" title="Change selected cell to code (for execution)"><span class="ui-button-text"><u>C</u>ode</span></button>
+<!-- <button id="to_html">HTML</button>-->
+<button id="to_markdown" class="ui-button ui-widget ui-state-default ui-button-text-only ui-corner-right" role="button" aria-disabled="false" title="Change selected cell to markdown (for text)"><span class="ui-button-text"><u>M</u>arkdown</span></button>
+</span>
+<span class="button_label">Format</span>
+</div>
+<div class="section_row ui-helper-clearfix">
+<span id="cell_output" class="section_row_buttons ui-buttonset">
+<button id="toggle_output" class="ui-button ui-widget ui-state-default ui-button-text-only ui-corner-left" role="button" aria-disabled="false" title="Toggle visibility of the output of code cells"><span class="ui-button-text"><u>T</u>oggle</span></button>
+<button id="clear_all_output" class="ui-button ui-widget ui-state-default ui-button-text-only ui-corner-right" role="button" aria-disabled="false" title="Clear output of all code cells (actually removes the data, unlike toggle)"><span class="ui-button-text">ClearAll</span></button>
+</span>
+<span class="button_label">Output</span>
+</div>
+<div class="section_row ui-helper-clearfix">
+<span id="insert" class="section_row_buttons ui-buttonset">
+<button id="insert_cell_above" class="ui-button ui-widget ui-state-default ui-button-text-only ui-corner-left" role="button" aria-disabled="false" title="Insert new cell above selected"><span class="ui-button-text"><u>A</u>bove</span></button>
+<button id="insert_cell_below" class="ui-button ui-widget ui-state-default ui-button-text-only ui-corner-right" role="button" aria-disabled="false" title="Insert new cell below selected"><span class="ui-button-text"><u>B</u>elow</span></button>
+</span>
+<span class="button_label">Insert</span>
+</div>
+<div class="section_row ui-helper-clearfix">
+<span id="move" class="section_row_buttons ui-buttonset">
+<button id="move_cell_up" class="ui-button ui-widget ui-state-default ui-button-text-only ui-corner-left" role="button" aria-disabled="false" title="Move selected cell up one in the Notebook"><span class="ui-button-text">Up</span></button>
+<button id="move_cell_down" class="ui-button ui-widget ui-state-default ui-button-text-only ui-corner-right" role="button" aria-disabled="false" title="Move selected cell down one in the Notebook"><span class="ui-button-text">Down</span></button>
+</span>
+<span class="button_label">Move</span>
+</div>
+<div class="section_row ui-helper-clearfix">
+<span id="run_cells" class="section_row_buttons ui-buttonset">
+<button id="run_selected_cell" class="ui-button ui-widget ui-state-default ui-button-text-only ui-corner-left" role="button" aria-disabled="false" title="Submit the selected cell for execution"><span class="ui-button-text">Selected</span></button>
+<button id="run_all_cells" class="ui-button ui-widget ui-state-default ui-button-text-only ui-corner-right" role="button" aria-disabled="false" title="Run *all* code cells in the notebook in order"><span class="ui-button-text">All</span></button>
+</span>
+<span class="button_label">Run</span>
+</div>
+<div class="section_row ui-helper-clearfix">
+<span id="autoindent_span">
+<input type="checkbox" id="autoindent" checked="true" title="Autoindent code as-you-type">
+</span>
+<span class="checkbox_label" id="autoindent_label" title="Autoindent code as-you-type">Autoindent:</span>
+</div>
+</div>
+</div>
+<div id="kernel_section">
+<div class="section_header ui-widget ui-state-default ui-helper-clearfix" title="Click to Show/Hide Section">
+<h3>Kernel</h3>
+</div>
+<div class="section_content ui-widget ui-helper-clearfix">
+<div class="section_row ui-helper-clearfix">
+<span id="int_restart" class="section_row_buttons ui-buttonset">
+<button id="int_kernel" class="ui-button ui-widget ui-state-default ui-button-text-only ui-corner-left" role="button" aria-disabled="false" title="Interrupt the kernel with SIGINT/Ctrl-C"><span class="ui-button-text"><u>I</u>nterrupt</span></button>
+<button id="restart_kernel" class="ui-button ui-widget ui-state-default ui-button-text-only ui-corner-right" role="button" aria-disabled="false" title="Restart the kernel. This will shutdown the current kernel, and start a new, clean kernel in its place, connected to this Notebook. This may break the connection of other clients connected to this kernel."><span class="ui-button-text">Restart</span></button>
+</span>
+<span class="section_row_header">Actions</span>
+</div>
+<div class="section_row ui-helper-clearfix">
+<span id="kernel_persist">
+
+<input type="checkbox" id="kill_kernel" title="Kill the kernel on exit.  If unchecked, the kernel will remain active after closing the session, allowing you to reconnect and resume later.">
+
+</span>
+<span class="checkbox_label" id="kill_kernel_label" title="Kill the kernel on exit.  If unchecked, the kernel will remain active after closing the session, allowing you to reconnect and resume later.">Kill kernel upon exit:</span>
+</div>
+</div>
+</div>
+<div id="help_section">
+<div class="section_header ui-widget ui-state-default ui-helper-clearfix" title="Click to Show/Hide Section">
+<h3>Help</h3>
+</div>
+<div class="section_content ui-widget ui-helper-clearfix">
+<div class="section_row ui-helper-clearfix">
+<span id="help_buttons0" class="section_row_buttons ui-buttonset">
+<a id="python_help" href="http://docs.python.org/" target="_blank" class="ui-button ui-widget ui-state-default ui-button-text-only ui-corner-left" role="button" aria-disabled="false" title="Open the online Python documentation in a new tab"><span class="ui-button-text">Python</span></a>
+<a id="ipython_help" href="http://ipython.org/documentation.html" target="_blank" class="ui-button ui-widget ui-state-default ui-button-text-only ui-corner-right" role="button" aria-disabled="false" title="Open the online IPython documentation in a new tab"><span class="ui-button-text">IPython</span></a>
+</span>
+<span class="section_row_header">Links</span>
+</div>
+<div class="section_row ui-helper-clearfix">
+<span id="help_buttons1" class="section_row_buttons ui-buttonset">
+<a id="numpy_help" href="http://docs.scipy.org/doc/numpy/reference/" target="_blank" class="ui-button ui-widget ui-state-default ui-button-text-only ui-corner-left" role="button" aria-disabled="false" title="Open the online NumPy documentation in a new tab"><span class="ui-button-text">NumPy</span></a>
+<a id="scipy_help" href="http://docs.scipy.org/doc/scipy/reference/" target="_blank" class="ui-button ui-widget ui-state-default ui-button-text-only ui-corner-right" role="button" aria-disabled="false" title="Open the online SciPy documentation in a new tab"><span class="ui-button-text">SciPy</span></a>
+</span>
+</div>
+<div class="section_row ui-helper-clearfix">
+<span id="help_buttons2" class="section_row_buttons ui-buttonset">
+<a id="matplotlib_help" href="http://matplotlib.sourceforge.net/" target="_blank" class="ui-button ui-widget ui-state-default ui-button-text-only ui-corner-left" role="button" aria-disabled="false" title="Open the online Matplotlib documentation in a new tab"><span class="ui-button-text">MPL</span></a>
+<a id="sympy_help" href="http://docs.sympy.org/dev/index.html" target="_blank" class="ui-button ui-widget ui-state-default ui-button-text-only ui-corner-right" role="button" aria-disabled="false" title="Open the online SymPy documentation in a new tab"><span class="ui-button-text">SymPy</span></a>
+</span>
+</div>
+<div class="section_row ui-helper-clearfix">
+<span class="help_string">run selected cell</span>
+<span class="help_string_label">Shift-Enter :</span>
+</div>
+<div class="section_row ui-helper-clearfix">
+<span class="help_string">run selected cell in-place</span>
+<span class="help_string_label">Ctrl-Enter :</span>
+</div>
+<div class="section_row ui-helper-clearfix">
+<span class="help_string">show keyboard shortcuts</span>
+<span class="help_string_label">Ctrl-m h :</span>
+</div>
+</div>
+</div>
+<div id="config_section">
+<div class="section_header ui-widget ui-state-default ui-helper-clearfix" title="Click to Show/Hide Section">
+<h3>Configuration</h3>
+</div>
+<div class="section_content ui-widget ui-helper-clearfix">
+<div class="section_row ui-helper-clearfix">
+<span id="tooltipontab_span">
+<input type="checkbox" id="tooltipontab" checked="true" title="Show tooltip if you press &lt;Tab&gt; after &quot;(&quot; or a white space">
+</span>
+<span class="checkbox_label" id="tooltipontab_label" title="Show Tooltip when pressing Tab">Tooltip on tab:</span>
+</div>
+<div class="section_row ui-helper-clearfix">
+<span id="smartcompleter_span">
+<input type="checkbox" id="smartcompleter" checked="true" title="When inside function call, completer try to propose kwargs first">
+</span>
+<span class="checkbox_label" id="smartcompleter_label" title="When inside function call, completer try to propose kwargs first">Smart completer:</span>
+</div>
+<div class="section_row ui-helper-clearfix">
+<span id="timebeforetooltip_span">
+<input type="text" id="timebeforetooltip" value="1200" size="6" class="ui-widget ui-widget-content" title="Time before a tooltip auto-appear when &quot;(&quot; is pressed (negative value supress tooltip)">
+<span class="numeric_input_label" id="timebeforetooltip_unit">milliseconds</span>
+</span>
+<span class="numeric_input_label" id="timebeforetooltip_label" title="Time before a tooltip auto-appear when &quot;(&quot; is pressed (negative value supress tooltip)">Time before tooltip : </span>
+</div>
+</div>
+</div>
+</div>
+<div id="left_panel_splitter" class="border-box-sizing ui-widget ui-state-default" title="Click to Show/Hide left panel" style="left: 300px; height: 567px;"></div>
+<div id="notebook_panel" class="border-box-sizing ui-widget" style="height: 567px; margin-left: 308px;">
+<div id="notebook" class="border-box-sizing" style="height: 559px;"><div class="cell text_cell border-box-sizing" tabindex="2"><div class="text_cell_input" style="display: none;"><div class="CodeMirror"><div style="overflow: hidden; position: relative; width: 1px; height: 0px; top: 51px; left: 152px;"><textarea style="position: absolute; width: 2px;" wrap="off" autocorrect="off" autocapitalize="off"></textarea></div><div class="CodeMirror-scroll cm-s-default"><div style="position: relative; height: 80px;"><div style="position: absolute; height: 0; width: 0; overflow: hidden;"><pre><span><span class="cm-null">Tools for analysis.</span></span></pre></div><div style="position: relative; top: 0px;"><div class="CodeMirror-gutter" style="display: none;"><div class="CodeMirror-gutter-text"></div></div><div class="CodeMirror-lines"><div style="position: relative" draggable="true"><pre class="CodeMirror-cursor" style="top: 51px; left: 152px; visibility: hidden;">&nbsp;</pre><div style=""><pre><span class="cm-null">//oggpnosn</span></pre><pre><span class="cm-null">//hkhr</span></pre><pre> </pre><pre class=""><span class="cm-null">Tools for analysis.</span></pre></div></div></div></div></div></div></div></div><div class="text_cell_render rendered_html" tabindex="-1" style="display: block;"><p>//oggpnosn
+//hkhr</p>
+
+<p>Tools for analysis.</p></div></div><div class="cell border-box-sizing code_cell vbox" tabindex="2"><div class="input hbox"><div class="prompt input_prompt">In&nbsp;[99]:</div><div class="input_area box-flex1"><div class="CodeMirror"><div style="overflow: hidden; position: relative; width: 1px; height: 0px; top: 68px; left: 104px;"><textarea style="position: absolute; width: 2px;" wrap="off" autocorrect="off" autocapitalize="off"></textarea></div><div class="CodeMirror-scroll cm-s-ipython"><div style="position: relative; height: 97px;"><div style="position: absolute; height: 0; width: 0; overflow: hidden;"><pre><span><span class="cm-keyword">import</span><span class="cm-null"> </span><span class="cm-variable">random</span></span></pre></div><div style="position: relative; top: 0px;"><div class="CodeMirror-gutter" style="display: none;"><div class="CodeMirror-gutter-text"></div></div><div class="CodeMirror-lines"><div style="position: relative" draggable="true"><pre class="CodeMirror-cursor" style="top: 68px; left: 104px;">&nbsp;</pre><div style=""><pre><span class="cm-comment">#importing essential library</span></pre><pre><span class="cm-keyword">import</span><span class="cm-null"> </span><span class="cm-variable">facebook</span><span class="cm-null"> </span><span class="cm-keyword">as</span><span class="cm-null"> </span><span class="cm-variable">fb</span></pre><pre><span class="cm-keyword">import</span><span class="cm-null"> </span><span class="cm-variable">networkx</span><span class="cm-null"> </span><span class="cm-keyword">as</span><span class="cm-null"> </span><span class="cm-variable">nx</span><span class="cm-null"> </span></pre><pre><span class="cm-keyword">import</span><span class="cm-null"> </span><span class="cm-variable">matplotlib.pyplot</span><span class="cm-null"> </span><span class="cm-keyword">as</span><span class="cm-null"> </span><span class="cm-variable">plot</span></pre><pre><span class="cm-keyword">import</span><span class="cm-null"> </span><span class="cm-variable">random</span></pre></div></div></div></div></div></div></div></div></div><div class="output vbox" style="display: none;"></div></div><div class="cell text_cell border-box-sizing" tabindex="2"><div class="text_cell_input" style="display: none;"><div class="CodeMirror"><div style="overflow: hidden; position: relative; width: 1px; height: 0px; top: 102px; left: 488px;"><textarea style="position: absolute; width: 2px;" wrap="off" autocorrect="off" autocapitalize="off"></textarea></div><div class="CodeMirror-scroll cm-s-default"><div style="position: relative; height: 131px; width: 1222px;"><div style="position: absolute; height: 0; width: 0; overflow: hidden;"><pre><span><span class="cm-null">Finally this graph is written to Seminar.gexf in gexf format.</span></span></pre></div><div style="position: relative; top: 0px;"><div class="CodeMirror-gutter" style="display: none;"><div class="CodeMirror-gutter-text"></div></div><div class="CodeMirror-lines"><div style="position: relative; width: 1216px;" draggable="true"><pre class="CodeMirror-cursor" style="top: 102px; left: 488px;">&nbsp;</pre><div style=""><pre><span class="cm-null">Loading my facebook graph. To fetch data from facebook one needs to have authorization code. Code can ne obtained in many ways </span></pre><pre><span class="cm-null">Simplest of that is Graph Explorer tool available at https://developers.facebook.com/tools/explorer/ .Once this code is obtained it has to be passed to </span></pre><pre><span class="cm-null">facebook.GraphAPI(), which returns a handle through which request can be passed. Using get_object() function request can be made to </span></pre><pre><span class="cm-null">facebook graph api. Documentation of type of request and permission required are given in facebook developer website.</span></pre><pre><span class="cm-null">Using "/me/friends" request friends list can be obtained. Json file is returned by this request which is a python dictionary which </span></pre><pre><span class="cm-null">can be used like a regular dictionary. Finally edge will be added to the graph using add_edge() which takes name of my friend and our mutual friend.</span></pre><pre><span class="cm-null">Finally this graph is written to Seminar.gexf in gexf format.</span></pre></div></div></div></div></div></div></div></div><div class="text_cell_render rendered_html" tabindex="-1" style="display: block;"><p>Loading my facebook graph. To fetch data from facebook one needs to have authorization code. Code can ne obtained in many ways 
+Simplest of that is Graph Explorer tool available at <a href="https://developers.facebook.com/tools/explorer/">https://developers.facebook.com/tools/explorer/</a> .Once this code is obtained it has to be passed to 
+facebook.GraphAPI(), which returns a handle through which request can be passed. Using get_object() function request can be made to 
+facebook graph api. Documentation of type of request and permission required are given in facebook developer website.
+Using "/me/friends" request friends list can be obtained. Json file is returned by this request which is a python dictionary which 
+can be used like a regular dictionary. Finally edge will be added to the graph using add_edge() which takes name of my friend and our mutual friend.
+Finally this graph is written to Seminar.gexf in gexf format.</p></div></div><div class="cell border-box-sizing code_cell vbox" tabindex="2"><div class="input hbox"><div class="prompt input_prompt">In&nbsp;[100]:</div><div class="input_area box-flex1"><div class="CodeMirror"><div style="overflow: hidden; position: relative; width: 1px; height: 0px; top: 170px; left: 64px;"><textarea style="position: absolute; width: 2px;" wrap="off" autocorrect="off" autocapitalize="off"></textarea></div><div class="CodeMirror-scroll cm-s-ipython"><div style="position: relative; height: 199px; width: 1862px;"><div style="position: absolute; height: 0; width: 0; overflow: hidden;"><pre><span><span class="cm-null">        </span></span></pre></div><div style="position: relative; top: 0px;"><div class="CodeMirror-gutter" style="display: none;"><div class="CodeMirror-gutter-text"></div></div><div class="CodeMirror-lines"><div style="position: relative; width: 1856px;" draggable="true"><pre class="CodeMirror-cursor" style="top: 170px; left: 64px; visibility: hidden;">&nbsp;</pre><div style=""><pre><span class="cm-variable">g</span><span class="cm-null">=</span><span class="cm-variable">nx.Graph</span><span class="cm-null">()</span><span class="cm-comment">#initializing Graph</span></pre><pre><span class="cm-variable">oAuthKey</span><span class="cm-null">=</span><span class="cm-string">"CAACEdEose0cBAMElA55FEyDbEK4ZBzVokbjsxZAcpbrfIT0sCmwCHQIdGnjorYOUZCuDRpOlnlUAmfHc5NvlCKHvQtQVWDbzNlbsaV4Av7ByOa4lm8czXdINAOaZAeJK3erUiVOCFkf1ZBWlahVwtx6q1CUqg1Y2hULZAf57ZBpIxYXYhUKSZAHuKxHv3l6u1Ki54V83ZCD4bRwZDZD"</span><span class="cm-comment">#key Here</span></pre><pre><span class="cm-variable">graph</span><span class="cm-null">=</span><span class="cm-variable">fb.GraphAPI</span><span class="cm-null">(</span><span class="cm-variable">oAuthKey</span><span class="cm-null">)</span><span class="cm-comment">#getting a handle to extract data</span></pre><pre><span class="cm-variable">friends</span><span class="cm-null">=</span><span class="cm-variable">graph.get_object</span><span class="cm-null">(</span><span class="cm-string">"/me/friends"</span><span class="cm-null">)</span><span class="cm-comment">#fetching my friends list</span></pre><pre><span class="cm-variable">friends</span><span class="cm-null">=</span><span class="cm-variable">friends</span><span class="cm-null">[</span><span class="cm-string">"data"</span><span class="cm-null">]</span><span class="cm-comment">#excluding all background information thats of no use</span></pre><pre><span class="cm-keyword">for</span><span class="cm-null"> </span><span class="cm-variable">friend</span><span class="cm-null"> </span><span class="cm-operator">in</span><span class="cm-null"> </span><span class="cm-variable">friends</span><span class="cm-null">:</span><span class="cm-comment">#looping through my friends list</span></pre><pre><span class="cm-null">    </span><span class="cm-variable">mutFriends</span><span class="cm-null">=</span><span class="cm-variable">graph.get_object</span><span class="cm-null">(</span><span class="cm-string">"/"</span><span class="cm-operator">+</span><span class="cm-variable">friend</span><span class="cm-null">[</span><span class="cm-string">"id"</span><span class="cm-null">]</span><span class="cm-operator">+</span><span class="cm-string">"/mutualfriends"</span><span class="cm-null">)[</span><span class="cm-string">"data"</span><span class="cm-null">]</span><span class="cm-comment">#Making a list of my friends mutual friends list</span></pre><pre><span class="cm-null">    </span><span class="cm-keyword">for</span><span class="cm-null"> </span><span class="cm-variable">mutFriend</span><span class="cm-null"> </span><span class="cm-operator">in</span><span class="cm-null"> </span><span class="cm-variable">mutFriends</span><span class="cm-null">:</span><span class="cm-comment">#looping through my friend's mutual friend's list</span></pre><pre><span class="cm-null">        </span><span class="cm-variable">g.add_edge</span><span class="cm-null">(</span><span class="cm-variable">friend</span><span class="cm-null">[</span><span class="cm-string">"name"</span><span class="cm-null">],</span><span class="cm-variable">mutFriend</span><span class="cm-null">[</span><span class="cm-string">"name"</span><span class="cm-null">])</span><span class="cm-comment">#adding my friend and my other friend who are friends with on another</span></pre><pre><span class="cm-variable">nx.write_gexf</span><span class="cm-null">(</span><span class="cm-variable">g</span><span class="cm-null">,</span><span class="cm-string">"Seminar.gexf"</span><span class="cm-null">) </span><span class="cm-comment">#Saving Graph as Seminar.gexf       </span></pre><pre><span class="cm-null">        </span></pre></div></div></div></div></div></div></div></div></div><div class="output vbox" style=""><div class="hbox output_area"><div class="prompt"></div><div class="box_flex1 output_subarea output_text"><pre><span class="ansired">---------------------------------------------------------------------------</span>
+<span class="ansired">URLError</span>                                  Traceback (most recent call last)
+<span class="ansigreen">/home/tanay/Desktop/Project/How Data Affect Decision/Social Network Analysis/&lt;ipython-input-100-9f67b877bcc8&gt;</span> in <span class="ansicyan">&lt;module&gt;</span><span class="ansiblue">()</span>
+<span class="ansigreen">      2</span> oAuthKey<span class="ansiblue">=</span><span class="ansiblue">"CAACEdEose0cBAMElA55FEyDbEK4ZBzVokbjsxZAcpbrfIT0sCmwCHQIdGnjorYOUZCuDRpOlnlUAmfHc5NvlCKHvQtQVWDbzNlbsaV4Av7ByOa4lm8czXdINAOaZAeJK3erUiVOCFkf1ZBWlahVwtx6q1CUqg1Y2hULZAf57ZBpIxYXYhUKSZAHuKxHv3l6u1Ki54V83ZCD4bRwZDZD"</span><span class="ansired">#key Here</span><span class="ansiblue"></span>
+<span class="ansigreen">      3</span> graph<span class="ansiblue">=</span>fb<span class="ansiblue">.</span>GraphAPI<span class="ansiblue">(</span>oAuthKey<span class="ansiblue">)</span><span class="ansired">#getting a handle to extract data</span><span class="ansiblue"></span>
+<span class="ansigreen">----&gt; 4</span><span class="ansired"> </span>friends<span class="ansiblue">=</span>graph<span class="ansiblue">.</span>get_object<span class="ansiblue">(</span><span class="ansiblue">"/me/friends"</span><span class="ansiblue">)</span><span class="ansired">#fetching my friends list</span><span class="ansiblue"></span>
+<span class="ansigreen">      5</span> friends<span class="ansiblue">=</span>friends<span class="ansiblue">[</span><span class="ansiblue">"data"</span><span class="ansiblue">]</span><span class="ansired">#excluding all background information thats of no use</span><span class="ansiblue"></span>
+<span class="ansigreen">      6</span> <span class="ansigreen">for</span> friend <span class="ansigreen">in</span> friends<span class="ansiblue">:</span><span class="ansired">#looping through my friends list</span><span class="ansiblue"></span>
+
+<span class="ansigreen">/usr/local/lib/python2.7/dist-packages/facebook.pyc</span> in <span class="ansicyan">get_object</span><span class="ansiblue">(self, id, **args)</span>
+<span class="ansigreen">     97</span>     <span class="ansigreen">def</span> get_object<span class="ansiblue">(</span>self<span class="ansiblue">,</span> id<span class="ansiblue">,</span> <span class="ansiblue">**</span>args<span class="ansiblue">)</span><span class="ansiblue">:</span><span class="ansiblue"></span>
+<span class="ansigreen">     98</span>         <span class="ansiblue">"""Fetchs the given object from the graph."""</span><span class="ansiblue"></span>
+<span class="ansigreen">---&gt; 99</span><span class="ansired">         </span><span class="ansigreen">return</span> self<span class="ansiblue">.</span>request<span class="ansiblue">(</span>id<span class="ansiblue">,</span> args<span class="ansiblue">)</span><span class="ansiblue"></span>
+<span class="ansigreen">    100</span> <span class="ansiblue"></span>
+<span class="ansigreen">    101</span>     <span class="ansigreen">def</span> get_objects<span class="ansiblue">(</span>self<span class="ansiblue">,</span> ids<span class="ansiblue">,</span> <span class="ansiblue">**</span>args<span class="ansiblue">)</span><span class="ansiblue">:</span><span class="ansiblue"></span>
+
+<span class="ansigreen">/usr/local/lib/python2.7/dist-packages/facebook.pyc</span> in <span class="ansicyan">request</span><span class="ansiblue">(self, path, args, post_args)</span>
+<span class="ansigreen">    293</span>         <span class="ansigreen">try</span><span class="ansiblue">:</span><span class="ansiblue"></span>
+<span class="ansigreen">    294</span>             file = urllib2.urlopen("https://graph.facebook.com/" + path + "?" +
+<span class="ansigreen">--&gt; 295</span><span class="ansired">                     urllib.urlencode(args), post_data, timeout=self.timeout)
+</span><span class="ansigreen">    296</span>         <span class="ansigreen">except</span> urllib2<span class="ansiblue">.</span>HTTPError<span class="ansiblue">,</span> e<span class="ansiblue">:</span><span class="ansiblue"></span>
+<span class="ansigreen">    297</span>             response <span class="ansiblue">=</span> _parse_json<span class="ansiblue">(</span>e<span class="ansiblue">.</span>read<span class="ansiblue">(</span><span class="ansiblue">)</span><span class="ansiblue">)</span><span class="ansiblue"></span>
+
+<span class="ansigreen">/usr/lib/python2.7/urllib2.pyc</span> in <span class="ansicyan">urlopen</span><span class="ansiblue">(url, data, timeout)</span>
+<span class="ansigreen">    124</span>     <span class="ansigreen">if</span> _opener <span class="ansigreen">is</span> None<span class="ansiblue">:</span><span class="ansiblue"></span>
+<span class="ansigreen">    125</span>         _opener <span class="ansiblue">=</span> build_opener<span class="ansiblue">(</span><span class="ansiblue">)</span><span class="ansiblue"></span>
+<span class="ansigreen">--&gt; 126</span><span class="ansired">     </span><span class="ansigreen">return</span> _opener<span class="ansiblue">.</span>open<span class="ansiblue">(</span>url<span class="ansiblue">,</span> data<span class="ansiblue">,</span> timeout<span class="ansiblue">)</span><span class="ansiblue"></span>
+<span class="ansigreen">    127</span> <span class="ansiblue"></span>
+<span class="ansigreen">    128</span> <span class="ansigreen">def</span> install_opener<span class="ansiblue">(</span>opener<span class="ansiblue">)</span><span class="ansiblue">:</span><span class="ansiblue"></span>
+
+<span class="ansigreen">/usr/lib/python2.7/urllib2.pyc</span> in <span class="ansicyan">open</span><span class="ansiblue">(self, fullurl, data, timeout)</span>
+<span class="ansigreen">    398</span>             req <span class="ansiblue">=</span> meth<span class="ansiblue">(</span>req<span class="ansiblue">)</span><span class="ansiblue"></span>
+<span class="ansigreen">    399</span> <span class="ansiblue"></span>
+<span class="ansigreen">--&gt; 400</span><span class="ansired">         </span>response <span class="ansiblue">=</span> self<span class="ansiblue">.</span>_open<span class="ansiblue">(</span>req<span class="ansiblue">,</span> data<span class="ansiblue">)</span><span class="ansiblue"></span>
+<span class="ansigreen">    401</span> <span class="ansiblue"></span>
+<span class="ansigreen">    402</span>         <span class="ansired"># post-process response</span>
+<span class="ansiblue"></span>
+
+<span class="ansigreen">/usr/lib/python2.7/urllib2.pyc</span> in <span class="ansicyan">_open</span><span class="ansiblue">(self, req, data)</span>
+<span class="ansigreen">    416</span>         protocol <span class="ansiblue">=</span> req<span class="ansiblue">.</span>get_type<span class="ansiblue">(</span><span class="ansiblue">)</span><span class="ansiblue"></span>
+<span class="ansigreen">    417</span>         result = self._call_chain(self.handle_open, protocol, protocol +
+<span class="ansigreen">--&gt; 418</span><span class="ansired">                                   '_open', req)
+</span><span class="ansigreen">    419</span>         <span class="ansigreen">if</span> result<span class="ansiblue">:</span><span class="ansiblue"></span>
+<span class="ansigreen">    420</span>             <span class="ansigreen">return</span> result<span class="ansiblue"></span>
+
+<span class="ansigreen">/usr/lib/python2.7/urllib2.pyc</span> in <span class="ansicyan">_call_chain</span><span class="ansiblue">(self, chain, kind, meth_name, *args)</span>
+<span class="ansigreen">    376</span>             func <span class="ansiblue">=</span> getattr<span class="ansiblue">(</span>handler<span class="ansiblue">,</span> meth_name<span class="ansiblue">)</span><span class="ansiblue"></span>
+<span class="ansigreen">    377</span> <span class="ansiblue"></span>
+<span class="ansigreen">--&gt; 378</span><span class="ansired">             </span>result <span class="ansiblue">=</span> func<span class="ansiblue">(</span><span class="ansiblue">*</span>args<span class="ansiblue">)</span><span class="ansiblue"></span>
+<span class="ansigreen">    379</span>             <span class="ansigreen">if</span> result <span class="ansigreen">is</span> <span class="ansigreen">not</span> None<span class="ansiblue">:</span><span class="ansiblue"></span>
+<span class="ansigreen">    380</span>                 <span class="ansigreen">return</span> result<span class="ansiblue"></span>
+
+<span class="ansigreen">/usr/lib/python2.7/urllib2.pyc</span> in <span class="ansicyan">https_open</span><span class="ansiblue">(self, req)</span>
+<span class="ansigreen">   1213</span> <span class="ansiblue"></span>
+<span class="ansigreen">   1214</span>         <span class="ansigreen">def</span> https_open<span class="ansiblue">(</span>self<span class="ansiblue">,</span> req<span class="ansiblue">)</span><span class="ansiblue">:</span><span class="ansiblue"></span>
+<span class="ansigreen">-&gt; 1215</span><span class="ansired">             </span><span class="ansigreen">return</span> self<span class="ansiblue">.</span>do_open<span class="ansiblue">(</span>httplib<span class="ansiblue">.</span>HTTPSConnection<span class="ansiblue">,</span> req<span class="ansiblue">)</span><span class="ansiblue"></span>
+<span class="ansigreen">   1216</span> <span class="ansiblue"></span>
+<span class="ansigreen">   1217</span>         https_request <span class="ansiblue">=</span> AbstractHTTPHandler<span class="ansiblue">.</span>do_request_<span class="ansiblue"></span>
+
+<span class="ansigreen">/usr/lib/python2.7/urllib2.pyc</span> in <span class="ansicyan">do_open</span><span class="ansiblue">(self, http_class, req)</span>
+<span class="ansigreen">   1175</span>         <span class="ansigreen">except</span> socket<span class="ansiblue">.</span>error<span class="ansiblue">,</span> err<span class="ansiblue">:</span> <span class="ansired"># XXX what error?</span><span class="ansiblue"></span>
+<span class="ansigreen">   1176</span>             h<span class="ansiblue">.</span>close<span class="ansiblue">(</span><span class="ansiblue">)</span><span class="ansiblue"></span>
+<span class="ansigreen">-&gt; 1177</span><span class="ansired">             </span><span class="ansigreen">raise</span> URLError<span class="ansiblue">(</span>err<span class="ansiblue">)</span><span class="ansiblue"></span>
+<span class="ansigreen">   1178</span>         <span class="ansigreen">else</span><span class="ansiblue">:</span><span class="ansiblue"></span>
+<span class="ansigreen">   1179</span>             <span class="ansigreen">try</span><span class="ansiblue">:</span><span class="ansiblue"></span>
+
+<span class="ansired">URLError</span>: &lt;urlopen error [Errno -2] Name or service not known&gt;
+
+</pre></div></div></div></div><div class="cell text_cell border-box-sizing" tabindex="2"><div class="text_cell_input" style="display: none;"><div class="CodeMirror"><div style="overflow: hidden; position: relative; width: 1px; height: 0px; top: 17px; left: 616px;"><textarea style="position: absolute; width: 2px;" wrap="off" autocorrect="off" autocapitalize="off"></textarea></div><div class="CodeMirror-scroll cm-s-default"><div style="position: relative; height: 63px; width: 1070px;"><div style="position: absolute; height: 0; width: 0; overflow: hidden;"><pre><span><span class="cm-null">to it. This will help in identifying people who are popular in YOUR network. </span></span></pre></div><div style="position: relative; top: 0px;"><div class="CodeMirror-gutter" style="display: none;"><div class="CodeMirror-gutter-text"></div></div><div class="CodeMirror-lines"><div style="position: relative; width: 1064px;" draggable="true"><pre class="CodeMirror-cursor" style="top: 17px; left: 616px;">&nbsp;</pre><div style=""><pre><span class="cm-null">Calculating Degree Centrality. This helps in calculating popularity of a person. Degree centrality is the fraction of nodes connected</span></pre><pre><span class="cm-null">to it. This will help in identifying people who are popular in YOUR network. </span></pre><pre> </pre></div></div></div></div></div></div></div></div><div class="text_cell_render rendered_html" tabindex="-1" style="display: block;"><p>Calculating Degree Centrality. This helps in calculating popularity of a person. Degree centrality is the fraction of nodes connected
+to it. This will help in identifying people who are popular in YOUR network. </p></div></div><div class="cell border-box-sizing code_cell vbox" tabindex="2"><div class="input hbox"><div class="prompt input_prompt">In&nbsp;[101]:</div><div class="input_area box-flex1"><div class="CodeMirror"><div style="overflow: hidden; position: relative; width: 1px; height: 0px; top: 68px; left: 24px;"><textarea style="position: absolute; width: 2px;" wrap="off" autocorrect="off" autocapitalize="off"></textarea></div><div class="CodeMirror-scroll cm-s-ipython"><div style="position: relative; height: 131px;"><div style="position: absolute; height: 0; width: 0; overflow: hidden;"><pre><span><span class="cm-null">   </span></span></pre></div><div style="position: relative; top: 0px;"><div class="CodeMirror-gutter" style="display: none;"><div class="CodeMirror-gutter-text"></div></div><div class="CodeMirror-lines"><div style="position: relative" draggable="true"><pre class="CodeMirror-cursor" style="top: 68px; left: 24px;">&nbsp;</pre><div style=""><pre><span class="cm-variable">deg</span><span class="cm-null">=</span><span class="cm-variable">nx.degree_centrality</span><span class="cm-null">(</span><span class="cm-variable">g</span><span class="cm-null">)</span><span class="cm-comment">#getting a dict object</span></pre><pre><span class="cm-variable">sorted_deg</span><span class="cm-null">=</span><span class="cm-variable">sorted</span><span class="cm-null">(</span><span class="cm-variable">deg</span><span class="cm-null">,</span><span class="cm-variable">key</span><span class="cm-null">=</span><span class="cm-keyword">lambda</span><span class="cm-null"> </span><span class="cm-variable">x</span><span class="cm-null">:</span><span class="cm-variable">deg</span><span class="cm-null">[</span><span class="cm-variable">x</span><span class="cm-null">])</span><span class="cm-comment">#sorting the dict in ascending order</span></pre><pre><span class="cm-keyword">print</span><span class="cm-null"> </span><span class="cm-string">"Top 10 Celebrity In your network"</span></pre><pre><span class="cm-keyword">for</span><span class="cm-null"> </span><span class="cm-variable">i</span><span class="cm-null"> </span><span class="cm-operator">in</span><span class="cm-null"> </span><span class="cm-variable">range</span><span class="cm-null">(</span><span class="cm-number">1</span><span class="cm-null">,</span><span class="cm-number">11</span><span class="cm-null">):</span><span class="cm-comment">#getting top 10</span></pre><pre><span class="cm-null">    </span><span class="cm-keyword">print</span><span class="cm-null"> </span><span class="cm-variable">sorted_deg</span><span class="cm-null">[</span><span class="cm-operator">-</span><span class="cm-number">1</span><span class="cm-operator">*</span><span class="cm-variable">i</span><span class="cm-null">]</span><span class="cm-comment">#printing the ith famous person</span></pre><pre><span class="cm-variable">plot.hist</span><span class="cm-null">(</span><span class="cm-variable">deg.values</span><span class="cm-null">())    </span><span class="cm-comment">#creating a histogram to get an idea of variance in degree centrality value</span></pre><pre><span class="cm-variable">plot.show</span><span class="cm-null">() </span><span class="cm-comment">#to show the Histogram</span></pre></div></div></div></div></div></div></div></div></div><div class="output vbox" style=""><div class="hbox output_area"><div class="prompt"></div><div class="box_flex1 output_subarea output_text"><pre><span class="ansired">---------------------------------------------------------------------------</span>
+<span class="ansired">IndexError</span>                                Traceback (most recent call last)
+<span class="ansigreen">/home/tanay/Desktop/Project/How Data Affect Decision/Social Network Analysis/&lt;ipython-input-101-0037f90fd944&gt;</span> in <span class="ansicyan">&lt;module&gt;</span><span class="ansiblue">()</span>
+<span class="ansigreen">      3</span> <span class="ansigreen">print</span> <span class="ansiblue">"Top 10 Celebrity In your network"</span><span class="ansiblue"></span>
+<span class="ansigreen">      4</span> <span class="ansigreen">for</span> i <span class="ansigreen">in</span> range<span class="ansiblue">(</span><span class="ansicyan">1</span><span class="ansiblue">,</span><span class="ansicyan">11</span><span class="ansiblue">)</span><span class="ansiblue">:</span><span class="ansired">#getting top 10</span><span class="ansiblue"></span>
+<span class="ansigreen">----&gt; 5</span><span class="ansired">     </span><span class="ansigreen">print</span> sorted_deg<span class="ansiblue">[</span><span class="ansiblue">-</span><span class="ansicyan">1</span><span class="ansiblue">*</span>i<span class="ansiblue">]</span><span class="ansired">#printing the ith famous person</span><span class="ansiblue"></span>
+<span class="ansigreen">      6</span> plot<span class="ansiblue">.</span>hist<span class="ansiblue">(</span>deg<span class="ansiblue">.</span>values<span class="ansiblue">(</span><span class="ansiblue">)</span><span class="ansiblue">)</span>    <span class="ansired">#creating a histogram to get an idea of variance in degree centrality value</span><span class="ansiblue"></span>
+<span class="ansigreen">      7</span> plot<span class="ansiblue">.</span>show<span class="ansiblue">(</span><span class="ansiblue">)</span> <span class="ansired">#to show the Histogram</span><span class="ansiblue"></span>
+
+<span class="ansired">IndexError</span>: list index out of range
+
+</pre></div></div><div class="hbox output_area"><div class="prompt"></div><div class="box_flex1 output_subarea output_text output_stream output_stdout"><pre>Top 10 Celebrity In your network
+</pre></div></div></div></div><div class="cell text_cell border-box-sizing ui-widget-content ui-corner-all" tabindex="2"><div class="text_cell_input" style="display: none;"><div class="CodeMirror"><div style="overflow: hidden; position: relative; width: 1px; height: 0px; top: 51px; left: 80px;"><textarea style="position: absolute; width: 2px;" wrap="off" autocorrect="off" autocapitalize="off"></textarea></div><div class="CodeMirror-scroll cm-s-default"><div style="position: relative; height: 80px; width: 1078px;"><div style="position: absolute; height: 0; width: 0; overflow: hidden;"><pre><span><span class="cm-null">closeness.</span></span></pre></div><div style="position: relative; top: 0px;"><div class="CodeMirror-gutter" style="display: none;"><div class="CodeMirror-gutter-text"></div></div><div class="CodeMirror-lines"><div style="position: relative; width: 1072px;" draggable="true"><pre class="CodeMirror-cursor" style="top: 51px; left: 80px; visibility: hidden;">&nbsp;</pre><div style=""><pre><span class="cm-null">Calculating Closeness centrality.This gives an idea of closeness a person maintains in your network. </span></pre><pre><span class="cm-null">This is calculated using closeness_centrality(). This method returns a dictionary object mapping nodes name to their closeness values.</span></pre><pre><span class="cm-null">Sorted() method sorts the dictionary according to the key lambda function provided. In this case values are sorted according to their </span></pre><pre class=""><span class="cm-null">closeness.</span></pre></div></div></div></div></div></div></div></div><div class="text_cell_render rendered_html" tabindex="-1" style="display: block;"><p>Calculating Closeness centrality.This gives an idea of closeness a person maintains in your network. 
+This is calculated using closeness_centrality(). This method returns a dictionary object mapping nodes name to their closeness values.
+Sorted() method sorts the dictionary according to the key lambda function provided. In this case values are sorted according to their 
+closeness.</p></div></div><div class="cell border-box-sizing code_cell vbox" tabindex="2"><div class="input hbox"><div class="prompt input_prompt">In&nbsp;[93]:</div><div class="input_area box-flex1"><div class="CodeMirror"><div style="overflow: hidden; position: relative; width: 1px; height: 0px; top: 102px; left: 272px;"><textarea style="position: absolute; width: 2px;" wrap="off" autocorrect="off" autocapitalize="off"></textarea></div><div class="CodeMirror-scroll cm-s-ipython"><div style="position: relative; height: 131px;"><div style="position: absolute; height: 0; width: 0; overflow: hidden;"><pre><span><span class="cm-variable">plot.show</span><span class="cm-null">() </span><span class="cm-comment">#to show the Histogram</span></span></pre></div><div style="position: relative; top: 0px;"><div class="CodeMirror-gutter" style="display: none;"><div class="CodeMirror-gutter-text"></div></div><div class="CodeMirror-lines"><div style="position: relative" draggable="true"><pre class="CodeMirror-cursor" style="top: 102px; left: 272px; visibility: hidden;">&nbsp;</pre><div style=""><pre><span class="cm-variable">closeness</span><span class="cm-null">=</span><span class="cm-variable">nx.closeness_centrality</span><span class="cm-null">(</span><span class="cm-variable">g</span><span class="cm-null">)</span><span class="cm-comment">#getting a dict object</span></pre><pre><span class="cm-variable">sorted_closeness</span><span class="cm-null">=</span><span class="cm-variable">sorted</span><span class="cm-null">(</span><span class="cm-variable">closeness</span><span class="cm-null">,</span><span class="cm-variable">key</span><span class="cm-null">=</span><span class="cm-keyword">lambda</span><span class="cm-null"> </span><span class="cm-variable">x</span><span class="cm-null">:</span><span class="cm-variable">closeness</span><span class="cm-null">[</span><span class="cm-variable">x</span><span class="cm-null">])</span><span class="cm-comment">#sorting the dict in ascending order</span></pre><pre><span class="cm-keyword">print</span><span class="cm-null"> </span><span class="cm-string">"Top 10 GossipMonger In your network"</span></pre><pre><span class="cm-keyword">for</span><span class="cm-null"> </span><span class="cm-variable">i</span><span class="cm-null"> </span><span class="cm-operator">in</span><span class="cm-null"> </span><span class="cm-variable">range</span><span class="cm-null">(</span><span class="cm-number">1</span><span class="cm-null">,</span><span class="cm-number">11</span><span class="cm-null">):</span><span class="cm-comment">#getting top 10</span></pre><pre><span class="cm-null">    </span><span class="cm-keyword">print</span><span class="cm-null"> </span><span class="cm-variable">sorted_closeness</span><span class="cm-null">[</span><span class="cm-operator">-</span><span class="cm-number">1</span><span class="cm-operator">*</span><span class="cm-variable">i</span><span class="cm-null">]</span><span class="cm-comment">#printing the ith gossiper</span></pre><pre><span class="cm-variable">plot.hist</span><span class="cm-null">(</span><span class="cm-variable">closeness.values</span><span class="cm-null">())    </span><span class="cm-comment">#creating a histogram to get an idea of variance in closeness centrality value</span></pre><pre><span class="cm-variable">plot.show</span><span class="cm-null">() </span><span class="cm-comment">#to show the Histogram</span></pre></div></div></div></div></div></div></div></div></div><div class="output vbox" style=""><div class="hbox output_area"><div class="prompt"></div><div class="box_flex1 output_subarea output_text output_stream output_stdout"><pre>Top 10 GossipMonger In your network
+Viraj Nayak
+Viresh Vazirani
+Kethzi Gildona Gilbert
+Anil Kumar
+Amey Kamat
+Dwane Almeida
+Leher Rokz
+Sruthi Somanath
+Abhilash Mandal
+Sarvaswa Tandon
+</pre></div></div></div></div><div class="cell text_cell border-box-sizing" tabindex="2"><div class="text_cell_input" style="display: none;"><div class="CodeMirror"><div style="overflow: hidden; position: relative; width: 1px; height: 0px; top: 17px; left: 888px;"><textarea style="position: absolute; width: 2px;" wrap="off" autocorrect="off" autocapitalize="off"></textarea></div><div class="CodeMirror-scroll cm-s-default"><div style="position: relative; height: 46px; width: 1646px;"><div style="position: absolute; height: 0; width: 0; overflow: hidden;"><pre><span><span class="cm-null">This gives an idea of amount of information that could pass through that node in information diffusion process.</span></span></pre></div><div style="position: relative; top: 0px;"><div class="CodeMirror-gutter" style="display: none;"><div class="CodeMirror-gutter-text"></div></div><div class="CodeMirror-lines"><div style="position: relative; width: 1640px;" draggable="true"><pre class="CodeMirror-cursor" style="top: 17px; left: 888px;">&nbsp;</pre><div style=""><pre><span class="cm-null">Calculating Betweeness Centrality.This gives an information about the most resourcefull people in your network.It is the fraction of shortest path between every pair of nodes that passes through that node.</span></pre><pre><span class="cm-null">This gives an idea of amount of information that could pass through that node in information diffusion process.</span></pre></div></div></div></div></div></div></div></div><div class="text_cell_render rendered_html" tabindex="-1" style="display: block;"><p>Calculating Betweeness Centrality.This gives an information about the most resourcefull people in your network.It is the fraction of shortest path between every pair of nodes that passes through that node.
+This gives an idea of amount of information that could pass through that node in information diffusion process.</p></div></div><div class="cell border-box-sizing code_cell vbox" tabindex="2"><div class="input hbox"><div class="prompt input_prompt">In&nbsp;[97]:</div><div class="input_area box-flex1"><div class="CodeMirror"><div style="overflow: hidden; position: relative; width: 1px; height: 0px; top: 0px; left: 248px;"><textarea style="position: absolute; width: 2px;" wrap="off" autocorrect="off" autocapitalize="off"></textarea></div><div class="CodeMirror-scroll cm-s-ipython"><div style="position: relative; height: 131px;"><div style="position: absolute; height: 0; width: 0; overflow: hidden;"><pre><span><span class="cm-variable">bet</span><span class="cm-null">=</span><span class="cm-variable">nx.betweenness_centrality</span><span class="cm-null">(</span><span class="cm-variable">g</span></span></pre></div><div style="position: relative; top: 0px;"><div class="CodeMirror-gutter" style="display: none;"><div class="CodeMirror-gutter-text"></div></div><div class="CodeMirror-lines"><div style="position: relative" draggable="true"><pre class="CodeMirror-cursor" style="top: 0px; left: 248px;">&nbsp;</pre><div style=""><pre><span class="cm-variable">bet</span><span class="cm-null">=</span><span class="cm-variable">nx.betweenness_centrality</span><span class="cm-null">(</span><span class="cm-variable">g</span><span class="cm-null">)</span><span class="cm-comment">#getting a dict object</span></pre><pre><span class="cm-variable">sorted_bet</span><span class="cm-null">=</span><span class="cm-variable">sorted</span><span class="cm-null">(</span><span class="cm-variable">bet</span><span class="cm-null">,</span><span class="cm-variable">key</span><span class="cm-null">=</span><span class="cm-keyword">lambda</span><span class="cm-null"> </span><span class="cm-variable">x</span><span class="cm-null">:</span><span class="cm-variable">bet</span><span class="cm-null">[</span><span class="cm-variable">x</span><span class="cm-null">])</span><span class="cm-comment">#sorting the dict in ascending order</span></pre><pre><span class="cm-keyword">print</span><span class="cm-null"> </span><span class="cm-string">"Top 10 Resourcefull In your network"</span></pre><pre><span class="cm-keyword">for</span><span class="cm-null"> </span><span class="cm-variable">i</span><span class="cm-null"> </span><span class="cm-operator">in</span><span class="cm-null"> </span><span class="cm-variable">range</span><span class="cm-null">(</span><span class="cm-number">1</span><span class="cm-null">,</span><span class="cm-number">11</span><span class="cm-null">):</span><span class="cm-comment">#getting top 10</span></pre><pre><span class="cm-null">    </span><span class="cm-keyword">print</span><span class="cm-null"> </span><span class="cm-variable">sorted_bet</span><span class="cm-null">[</span><span class="cm-operator">-</span><span class="cm-number">1</span><span class="cm-operator">*</span><span class="cm-variable">i</span><span class="cm-null">]</span><span class="cm-comment">#printing the ith resourceful person</span></pre><pre><span class="cm-variable">plot.hist</span><span class="cm-null">(</span><span class="cm-variable">bet.values</span><span class="cm-null">())    </span><span class="cm-comment">#creating a histogram to get an idea of variance in degree centrality value</span></pre><pre><span class="cm-variable">plot.show</span><span class="cm-null">() </span><span class="cm-comment">#to show the Histogram</span></pre></div></div></div></div></div></div></div></div></div><div class="output vbox" style=""><div class="hbox output_area"><div class="prompt"></div><div class="box_flex1 output_subarea output_text output_stream output_stdout"><pre>Top 10 Resourcefull In your network
+Abhinav Pandey
+Kethzi Gildona Gilbert
+Viresh Vazirani
+Sarvaswa Tandon
+Anil Kumar
+Amey Kamat
+Sruthi Somanath
+Viraj Nayak
+Dwane Almeida
+Pankaj Kharkwal
+</pre></div></div></div></div><div class="cell text_cell border-box-sizing" tabindex="2"><div class="text_cell_input" style="display: none;"><div class="CodeMirror"><div style="overflow: hidden; position: relative; width: 1px; height: 0px;"><textarea style="position: absolute; width: 2px;" wrap="off" autocorrect="off" autocapitalize="off"></textarea></div><div class="CodeMirror-scroll cm-s-default"><div style="position: relative; height: 1px;"><div style="position: absolute; height: 0; width: 0; overflow: hidden;"><pre>x</pre></div><div style="position: relative"><div class="CodeMirror-gutter" style="display: none;"><div class="CodeMirror-gutter-text"></div></div><div class="CodeMirror-lines"><div style="position: relative" draggable="true"><pre class="CodeMirror-cursor">&nbsp;</pre><div></div></div></div></div></div></div></div></div><div class="text_cell_render rendered_html" tabindex="-1"><p>Calulating Page Rank. This is used by google to rank web pages. This will tell the importance of a person in a network</p></div></div><div class="cell border-box-sizing code_cell vbox" tabindex="2"><div class="input hbox"><div class="prompt input_prompt">In&nbsp;[95]:</div><div class="input_area box-flex1"><div class="CodeMirror"><div style="overflow: hidden; position: relative; width: 1px; height: 0px; top: 0px; left: 120px;"><textarea style="position: absolute; width: 2px;" wrap="off" autocorrect="off" autocapitalize="off"></textarea></div><div class="CodeMirror-scroll cm-s-ipython"><div style="position: relative; height: 131px;"><div style="position: absolute; height: 0; width: 0; overflow: hidden;"><pre><span><span class="cm-variable">pr</span><span class="cm-null">=</span><span class="cm-variable">nx.pagerank</span><span class="cm-null">(</span></span></pre></div><div style="position: relative; top: 0px;"><div class="CodeMirror-gutter" style="display: none;"><div class="CodeMirror-gutter-text"></div></div><div class="CodeMirror-lines"><div style="position: relative" draggable="true"><pre class="CodeMirror-cursor" style="top: 0px; left: 120px;">&nbsp;</pre><div style=""><pre><span class="cm-variable">pr</span><span class="cm-null">=</span><span class="cm-variable">nx.pagerank</span><span class="cm-null">(</span><span class="cm-variable">g</span><span class="cm-null">)</span><span class="cm-comment">#getting a dict object</span></pre><pre><span class="cm-variable">sorted_pr</span><span class="cm-null">=</span><span class="cm-variable">sorted</span><span class="cm-null">(</span><span class="cm-variable">pr</span><span class="cm-null">,</span><span class="cm-variable">key</span><span class="cm-null">=</span><span class="cm-keyword">lambda</span><span class="cm-null"> </span><span class="cm-variable">x</span><span class="cm-null">:</span><span class="cm-variable">pr</span><span class="cm-null">[</span><span class="cm-variable">x</span><span class="cm-null">])</span><span class="cm-comment">#sorting the dict in ascending order</span></pre><pre><span class="cm-keyword">print</span><span class="cm-null"> </span><span class="cm-string">"Top 10 Important people In your network"</span></pre><pre><span class="cm-keyword">for</span><span class="cm-null"> </span><span class="cm-variable">i</span><span class="cm-null"> </span><span class="cm-operator">in</span><span class="cm-null"> </span><span class="cm-variable">range</span><span class="cm-null">(</span><span class="cm-number">1</span><span class="cm-null">,</span><span class="cm-number">11</span><span class="cm-null">):</span><span class="cm-comment">#getting top 10</span></pre><pre><span class="cm-null">    </span><span class="cm-keyword">print</span><span class="cm-null"> </span><span class="cm-variable">sorted_pr</span><span class="cm-null">[</span><span class="cm-operator">-</span><span class="cm-number">1</span><span class="cm-operator">*</span><span class="cm-variable">i</span><span class="cm-null">]</span><span class="cm-comment">#printing the ith important person</span></pre><pre><span class="cm-variable">plot.hist</span><span class="cm-null">(</span><span class="cm-variable">pr.values</span><span class="cm-null">())    </span><span class="cm-comment">#creating a histogram to get an idea of variance in pagerank centrality value</span></pre><pre><span class="cm-variable">plot.show</span><span class="cm-null">() </span><span class="cm-comment">#to show the Histogram</span></pre></div></div></div></div></div></div></div></div></div><div class="output vbox" style=""><div class="hbox output_area"><div class="prompt"></div><div class="box_flex1 output_subarea output_text output_stream output_stdout"><pre>Top 10 Important people In your network
+Abhinav Pandey
+Kethzi Gildona Gilbert
+Viresh Vazirani
+Sarvaswa Tandon
+Sruthi Somanath
+Viraj Nayak
+Dwane Almeida
+Amey Kamat
+Anil Kumar
+Pankaj Kharkwal
+</pre></div></div></div></div><div class="cell text_cell border-box-sizing" tabindex="2"><div class="text_cell_input" style="display: none;"><div class="CodeMirror"><div style="overflow: hidden; position: relative; width: 1px; height: 0px;"><textarea style="position: absolute; width: 2px;" wrap="off" autocorrect="off" autocapitalize="off"></textarea></div><div class="CodeMirror-scroll cm-s-default"><div style="position: relative; height: 1px;"><div style="position: absolute; height: 0; width: 0; overflow: hidden;"><pre>x</pre></div><div style="position: relative"><div class="CodeMirror-gutter" style="display: none;"><div class="CodeMirror-gutter-text"></div></div><div class="CodeMirror-lines"><div style="position: relative" draggable="true"><pre class="CodeMirror-cursor">&nbsp;</pre><div></div></div></div></div></div></div></div></div><div class="text_cell_render rendered_html" tabindex="-1"><p>Calculating EigenVector value. This tell about gray cardinal value in my network.</p></div></div><div class="cell border-box-sizing code_cell vbox" tabindex="2"><div class="input hbox"><div class="prompt input_prompt">In&nbsp;[62]:</div><div class="input_area box-flex1"><div class="CodeMirror"><div style="overflow: hidden; position: relative; width: 1px; height: 0px; top: 0px; left: 288px;"><textarea style="position: absolute; width: 2px;" wrap="off" autocorrect="off" autocapitalize="off"></textarea></div><div class="CodeMirror-scroll cm-s-ipython"><div style="position: relative; height: 131px;"><div style="position: absolute; height: 0; width: 0; overflow: hidden;"><pre><span><span class="cm-variable">ev</span><span class="cm-null">=</span><span class="cm-variable">nx.eigenvector_centrality</span><span class="cm-null">(</span><span class="cm-variable">g</span><span class="cm-null">)</span><span class="cm-comment">#gett</span></span></pre></div><div style="position: relative; top: 0px;"><div class="CodeMirror-gutter" style="display: none;"><div class="CodeMirror-gutter-text"></div></div><div class="CodeMirror-lines"><div style="position: relative" draggable="true"><pre class="CodeMirror-cursor" style="top: 0px; left: 288px;">&nbsp;</pre><div style=""><pre><span class="cm-variable">ev</span><span class="cm-null">=</span><span class="cm-variable">nx.eigenvector_centrality</span><span class="cm-null">(</span><span class="cm-variable">g</span><span class="cm-null">)</span><span class="cm-comment">#getting a dict object</span></pre><pre><span class="cm-variable">sorted_ev</span><span class="cm-null">=</span><span class="cm-variable">sorted</span><span class="cm-null">(</span><span class="cm-variable">ev</span><span class="cm-null">,</span><span class="cm-variable">key</span><span class="cm-null">=</span><span class="cm-keyword">lambda</span><span class="cm-null"> </span><span class="cm-variable">x</span><span class="cm-null">:</span><span class="cm-variable">ev</span><span class="cm-null">[</span><span class="cm-variable">x</span><span class="cm-null">])</span><span class="cm-comment">#sorting the dict in ascending order</span></pre><pre><span class="cm-keyword">print</span><span class="cm-null"> </span><span class="cm-string">"Top 10 Gray Cardinal In your network"</span></pre><pre><span class="cm-keyword">for</span><span class="cm-null"> </span><span class="cm-variable">i</span><span class="cm-null"> </span><span class="cm-operator">in</span><span class="cm-null"> </span><span class="cm-variable">range</span><span class="cm-null">(</span><span class="cm-number">1</span><span class="cm-null">,</span><span class="cm-number">11</span><span class="cm-null">):</span><span class="cm-comment">#getting top 10</span></pre><pre><span class="cm-null">    </span><span class="cm-keyword">print</span><span class="cm-null"> </span><span class="cm-variable">sorted_ev</span><span class="cm-null">[</span><span class="cm-operator">-</span><span class="cm-number">1</span><span class="cm-operator">*</span><span class="cm-variable">i</span><span class="cm-null">]</span><span class="cm-comment">#printing the ith gray cardinal person</span></pre><pre><span class="cm-variable">plot.hist</span><span class="cm-null">(</span><span class="cm-variable">ev.values</span><span class="cm-null">())    </span><span class="cm-comment">#creating a histogram to get an idea of variance in eigen vector centrality value</span></pre><pre><span class="cm-variable">plot.show</span><span class="cm-null">() </span><span class="cm-comment">#to show the Histogram</span></pre></div></div></div></div></div></div></div></div></div><div class="output vbox" style=""><div class="hbox output_area"><div class="prompt"></div><div class="box_flex1 output_subarea output_text output_stream output_stdout"><pre>Top 10 Gray Cardinal In your network
+Viraj Nayak
+Viresh Vazirani
+Kethzi Gildona Gilbert
+Anil Kumar
+Abhilash Mandal
+Prashant Singh
+Gaurav Parihar
+Tejkaran Charan
+Leher Rokz
+Soumik Sinai Pissurlenkar
+</pre></div></div></div></div><div class="cell text_cell border-box-sizing" tabindex="2"><div class="text_cell_input" style="display: none;"><div class="CodeMirror"><div style="overflow: hidden; position: relative; width: 1px; height: 0px;"><textarea style="position: absolute; width: 2px;" wrap="off" autocorrect="off" autocapitalize="off"></textarea></div><div class="CodeMirror-scroll cm-s-default"><div style="position: relative; height: 1px;"><div style="position: absolute; height: 0; width: 0; overflow: hidden;"><pre>x</pre></div><div style="position: relative"><div class="CodeMirror-gutter" style="display: none;"><div class="CodeMirror-gutter-text"></div></div><div class="CodeMirror-lines"><div style="position: relative" draggable="true"><pre class="CodeMirror-cursor">&nbsp;</pre><div></div></div></div></div></div></div></div></div><div class="text_cell_render rendered_html" tabindex="-1"><p>Comparing Degree, Closeness, Betweeness, PageRank, EigenVector. </p></div></div><div class="cell border-box-sizing code_cell vbox" tabindex="2"><div class="input hbox"><div class="prompt input_prompt">In&nbsp;[65]:</div><div class="input_area box-flex1"><div class="CodeMirror"><div style="overflow: hidden; position: relative; width: 1px; height: 0px; top: 68px; left: 464px;"><textarea style="position: absolute; width: 2px;" wrap="off" autocorrect="off" autocapitalize="off"></textarea></div><div class="CodeMirror-scroll cm-s-ipython"><div style="position: relative; height: 148px;"><div style="position: absolute; height: 0; width: 0; overflow: hidden;"><pre><span><span class="cm-keyword">print</span><span class="cm-null"> </span><span class="cm-string">"Closeness:  "</span><span class="cm-null">,</span><span class="cm-variable">closeness</span><span class="cm-null">[</span><span class="cm-variable">name1</span><span class="cm-null">],</span><span class="cm-string">"\t"</span><span class="cm-null">,</span><span class="cm-variable">closeness</span><span class="cm-null">[</span><span class="cm-variable">name2</span></span></pre></div><div style="position: relative; top: 0px;"><div class="CodeMirror-gutter" style="display: none;"><div class="CodeMirror-gutter-text"></div></div><div class="CodeMirror-lines"><div style="position: relative" draggable="true"><pre class="CodeMirror-cursor" style="top: 68px; left: 464px; visibility: hidden;">&nbsp;</pre><div style=""><pre><span class="cm-variable">name1</span><span class="cm-null">=</span><span class="cm-string">"Viraj Nayak"</span></pre><pre><span class="cm-variable">name2</span><span class="cm-null">=</span><span class="cm-string">"Kethzi Gildona Gilbert"</span></pre><pre><span class="cm-keyword">print</span><span class="cm-null"> </span><span class="cm-string">"Measure     "</span><span class="cm-null">,</span><span class="cm-variable">name1</span><span class="cm-null">,</span><span class="cm-string">"                "</span><span class="cm-null">,</span><span class="cm-variable">name2</span></pre><pre><span class="cm-keyword">print</span><span class="cm-null"> </span><span class="cm-string">"Degree:     "</span><span class="cm-null">,</span><span class="cm-variable">deg</span><span class="cm-null">[</span><span class="cm-variable">name1</span><span class="cm-null">],</span><span class="cm-string">"\t"</span><span class="cm-null">,</span><span class="cm-variable">deg</span><span class="cm-null">[</span><span class="cm-variable">name2</span><span class="cm-null">]</span></pre><pre><span class="cm-keyword">print</span><span class="cm-null"> </span><span class="cm-string">"Closeness:  "</span><span class="cm-null">,</span><span class="cm-variable">closeness</span><span class="cm-null">[</span><span class="cm-variable">name1</span><span class="cm-null">],</span><span class="cm-string">"\t"</span><span class="cm-null">,</span><span class="cm-variable">closeness</span><span class="cm-null">[</span><span class="cm-variable">name2</span><span class="cm-null">]</span></pre><pre><span class="cm-keyword">print</span><span class="cm-null"> </span><span class="cm-string">"Betweeness: "</span><span class="cm-null">,</span><span class="cm-variable">bet</span><span class="cm-null">[</span><span class="cm-variable">name1</span><span class="cm-null">],</span><span class="cm-string">"\t"</span><span class="cm-null">,</span><span class="cm-variable">bet</span><span class="cm-null">[</span><span class="cm-variable">name2</span><span class="cm-null">]</span></pre><pre><span class="cm-keyword">print</span><span class="cm-null"> </span><span class="cm-string">"PageRank:   "</span><span class="cm-null">,</span><span class="cm-variable">pr</span><span class="cm-null">[</span><span class="cm-variable">name1</span><span class="cm-null">],</span><span class="cm-string">"\t"</span><span class="cm-null">,</span><span class="cm-variable">pr</span><span class="cm-null">[</span><span class="cm-variable">name2</span><span class="cm-null">]</span></pre><pre><span class="cm-keyword">print</span><span class="cm-null"> </span><span class="cm-string">"EigenVector:"</span><span class="cm-null">,</span><span class="cm-variable">ev</span><span class="cm-null">[</span><span class="cm-variable">name1</span><span class="cm-null">],</span><span class="cm-string">"\t"</span><span class="cm-null">,</span><span class="cm-variable">ev</span><span class="cm-null">[</span><span class="cm-variable">name2</span><span class="cm-null">]</span></pre></div></div></div></div></div></div></div></div></div><div class="output vbox" style=""><div class="hbox output_area"><div class="prompt"></div><div class="box_flex1 output_subarea output_text output_stream output_stdout"><pre>Measure      Viraj Nayak                  Kethzi Gildona Gilbert
+Degree:      0.800904977376 	0.760180995475
+Closeness:   0.817817669312 	0.79185520362
+Betweeness:  0.0325604543322 	0.0240574781939
+PageRank:    0.0100118051911 	0.0094562328999
+EigenVector: 0.128395516348 	0.120852099617
+</pre></div></div></div></div><div class="cell text_cell border-box-sizing" tabindex="2"><div class="text_cell_input" style="display: none;"><div class="CodeMirror"><div style="overflow: hidden; position: relative; width: 1px; height: 0px;"><textarea style="position: absolute; width: 2px;" wrap="off" autocorrect="off" autocapitalize="off"></textarea></div><div class="CodeMirror-scroll cm-s-default"><div style="position: relative; height: 1px;"><div style="position: absolute; height: 0; width: 0; overflow: hidden;"><pre>x</pre></div><div style="position: relative"><div class="CodeMirror-gutter" style="display: none;"><div class="CodeMirror-gutter-text"></div></div><div class="CodeMirror-lines"><div style="position: relative" draggable="true"><pre class="CodeMirror-cursor">&nbsp;</pre><div></div></div></div></div></div></div></div></div><div class="text_cell_render rendered_html" tabindex="-1"><p>Calculating Connected Subcomponent of my social network.</p></div></div><div class="cell border-box-sizing code_cell vbox" tabindex="2"><div class="input hbox"><div class="prompt input_prompt">In&nbsp;[98]:</div><div class="input_area box-flex1"><div class="CodeMirror"><div style="overflow: hidden; position: relative; width: 1px; height: 0px; top: 17px; left: 304px;"><textarea style="position: absolute; width: 2px;" wrap="off" autocorrect="off" autocapitalize="off"></textarea></div><div class="CodeMirror-scroll cm-s-ipython"><div style="position: relative; height: 80px;"><div style="position: absolute; height: 0; width: 0; overflow: hidden;"><pre><span><span class="cm-keyword">print</span><span class="cm-null"> </span><span class="cm-string">"There are "</span><span class="cm-null">,</span><span class="cm-variable">len</span><span class="cm-null">(</span><span class="cm-variable">components</span><span class="cm-null">),</span><span class="cm-string">"co</span></span></pre></div><div style="position: relative; top: 0px;"><div class="CodeMirror-gutter" style="display: none;"><div class="CodeMirror-gutter-text"></div></div><div class="CodeMirror-lines"><div style="position: relative" draggable="true"><pre class="CodeMirror-cursor" style="top: 17px; left: 304px;">&nbsp;</pre><div style=""><pre><span class="cm-variable">components</span><span class="cm-null">=</span><span class="cm-variable">nx.connected_component_subgraphs</span><span class="cm-null">(</span><span class="cm-variable">g</span><span class="cm-null">)</span></pre><pre><span class="cm-keyword">print</span><span class="cm-null"> </span><span class="cm-string">"There are "</span><span class="cm-null">,</span><span class="cm-variable">len</span><span class="cm-null">(</span><span class="cm-variable">components</span><span class="cm-null">),</span><span class="cm-string">"component"</span></pre><pre><span class="cm-keyword">for</span><span class="cm-null"> </span><span class="cm-variable">component</span><span class="cm-null"> </span><span class="cm-operator">in</span><span class="cm-null"> </span><span class="cm-variable">components</span><span class="cm-null">:</span></pre><pre><span class="cm-null">    </span><span class="cm-keyword">print</span><span class="cm-null"> </span><span class="cm-string">"length:"</span><span class="cm-null">,</span><span class="cm-variable">len</span><span class="cm-null">(</span><span class="cm-variable">component</span><span class="cm-null">)</span></pre></div></div></div></div></div></div></div></div></div><div class="output vbox" style=""><div class="hbox output_area"><div class="prompt"></div><div class="box_flex1 output_subarea output_text output_stream output_stdout"><pre>There are  2 component
+length: 211
+length: 11
+</pre></div></div></div></div><div class="cell text_cell border-box-sizing" tabindex="2"><div class="text_cell_input" style="display: none;"><div class="CodeMirror"><div style="overflow: hidden; position: relative; width: 1px; height: 0px;"><textarea style="position: absolute; width: 2px;" wrap="off" autocorrect="off" autocapitalize="off"></textarea></div><div class="CodeMirror-scroll cm-s-default"><div style="position: relative; height: 1px;"><div style="position: absolute; height: 0; width: 0; overflow: hidden;"><pre>x</pre></div><div style="position: relative"><div class="CodeMirror-gutter" style="display: none;"><div class="CodeMirror-gutter-text"></div></div><div class="CodeMirror-lines"><div style="position: relative" draggable="true"><pre class="CodeMirror-cursor">&nbsp;</pre><div></div></div></div></div></div></div></div></div><div class="text_cell_render rendered_html" tabindex="-1"><p>Plotting Ego Graph of a person.</p></div></div><div class="cell border-box-sizing code_cell vbox" tabindex="2"><div class="input hbox"><div class="prompt input_prompt">In&nbsp;[94]:</div><div class="input_area box-flex1"><div class="CodeMirror"><div style="overflow: hidden; position: relative; width: 1px; height: 0px; top: 0px; left: 160px;"><textarea style="position: absolute; width: 2px;" wrap="off" autocorrect="off" autocapitalize="off"></textarea></div><div class="CodeMirror-scroll cm-s-ipython"><div style="position: relative; height: 97px;"><div style="position: absolute; height: 0; width: 0; overflow: hidden;"><pre><span><span class="cm-variable">name</span><span class="cm-null">=</span><span class="cm-string">"Abhinav Pandey</span></span></pre></div><div style="position: relative; top: 0px;"><div class="CodeMirror-gutter" style="display: none;"><div class="CodeMirror-gutter-text"></div></div><div class="CodeMirror-lines"><div style="position: relative" draggable="true"><pre class="CodeMirror-cursor" style="top: 0px; left: 160px; visibility: hidden;">&nbsp;</pre><div style=""><pre><span class="cm-variable">name</span><span class="cm-null">=</span><span class="cm-string">"Abhinav Pandey"</span></pre><pre><span class="cm-variable">ego</span><span class="cm-null">=</span><span class="cm-variable">nx.ego_graph</span><span class="cm-null">(</span><span class="cm-variable">g</span><span class="cm-null">,</span><span class="cm-variable">name</span><span class="cm-null">,</span><span class="cm-variable">radius</span><span class="cm-null">=</span><span class="cm-number">1</span><span class="cm-null">)</span></pre><pre><span class="cm-variable">nx.draw</span><span class="cm-null">(</span><span class="cm-variable">ego</span><span class="cm-null">)</span></pre><pre><span class="cm-variable">plot.show</span><span class="cm-null">()</span></pre><pre><span class="cm-keyword">print</span><span class="cm-null"> </span><span class="cm-string">"Clustering:"</span><span class="cm-null">,</span><span class="cm-variable">nx.clustering</span><span class="cm-null">(</span><span class="cm-variable">g</span><span class="cm-null">,</span><span class="cm-variable">name</span><span class="cm-null">)</span></pre></div></div></div></div></div></div></div></div></div><div class="output vbox" style=""><div class="hbox output_area"><div class="prompt"></div><div class="box_flex1 output_subarea output_text output_stream output_stdout"><pre>Clustering: 0.608058608059
+</pre></div></div></div></div><div class="cell text_cell border-box-sizing" tabindex="2"><div class="text_cell_input" style="display: none;"><div class="CodeMirror"><div style="overflow: hidden; position: relative; width: 1px; height: 0px;"><textarea style="position: absolute; width: 2px;" wrap="off" autocorrect="off" autocapitalize="off"></textarea></div><div class="CodeMirror-scroll cm-s-default"><div style="position: relative; height: 1px;"><div style="position: absolute; height: 0; width: 0; overflow: hidden;"><pre>x</pre></div><div style="position: relative"><div class="CodeMirror-gutter" style="display: none;"><div class="CodeMirror-gutter-text"></div></div><div class="CodeMirror-lines"><div style="position: relative" draggable="true"><pre class="CodeMirror-cursor">&nbsp;</pre><div></div></div></div></div></div></div></div></div><div class="text_cell_render rendered_html" tabindex="-1"><p>Calculating Cliques in Graph. These are closed faternity like terrorist organization.</p></div></div><div class="cell border-box-sizing code_cell vbox" tabindex="2"><div class="input hbox"><div class="prompt input_prompt">In&nbsp;[89]:</div><div class="input_area box-flex1"><div class="CodeMirror"><div style="overflow: hidden; position: relative; width: 1px; height: 0px; top: 51px; left: 136px;"><textarea style="position: absolute; width: 2px;" wrap="off" autocorrect="off" autocapitalize="off"></textarea></div><div class="CodeMirror-scroll cm-s-ipython"><div style="position: relative; height: 80px;"><div style="position: absolute; height: 0; width: 0; overflow: hidden;"><pre><span><span class="cm-variable">sorted_clique</span><span class="cm-null">[</span><span class="cm-operator">-</span><span class="cm-number">1</span><span class="cm-null">]</span></span></pre></div><div style="position: relative; top: 0px;"><div class="CodeMirror-gutter" style="display: none;"><div class="CodeMirror-gutter-text"></div></div><div class="CodeMirror-lines"><div style="position: relative" draggable="true"><pre class="CodeMirror-cursor" style="top: 51px; left: 136px; visibility: hidden;">&nbsp;</pre><div style=""><pre><span class="cm-variable">clique</span><span class="cm-null">=</span><span class="cm-variable">nx.find_cliques</span><span class="cm-null">(</span><span class="cm-variable">g</span><span class="cm-null">)</span></pre><pre><span class="cm-variable">clique</span><span class="cm-null">=</span><span class="cm-builtin">list</span><span class="cm-null">(</span><span class="cm-variable">clique</span><span class="cm-null">)</span></pre><pre><span class="cm-variable">sorted_clique</span><span class="cm-null">=</span><span class="cm-variable">sorted</span><span class="cm-null">(</span><span class="cm-variable">clique</span><span class="cm-null">,</span><span class="cm-variable">key</span><span class="cm-null">=</span><span class="cm-keyword">lambda</span><span class="cm-null"> </span><span class="cm-variable">x</span><span class="cm-null">:</span><span class="cm-variable">len</span><span class="cm-null">(</span><span class="cm-variable">x</span><span class="cm-null">))</span></pre><pre><span class="cm-variable">sorted_clique</span><span class="cm-null">[</span><span class="cm-operator">-</span><span class="cm-number">1</span><span class="cm-null">]</span></pre></div></div></div></div></div></div></div></div></div><div class="output vbox" style=""><div class="hbox output_area"><div class="prompt output_prompt">Out[89]:</div><div class="box_flex1 output_subarea output_text"><pre>['Pavankumar Achary',
+ 'Prashant Singh',
+ 'Gaurav Parihar',
+ 'Abhilash Mandal',
+ 'Sanoop Sashindran',
+ 'Sagar Sangodkar',
+ 'Soumik Sinai Pissurlenkar',
+ 'Jayant Bijarnia',
+ 'Akash Digwal',
+ 'Mansoor Khan',
+ 'Nikhil da Rocha',
+ 'Ankush Arora',
+ 'Mukul Bandodkar',
+ 'Anav Sharma',
+ 'Amal Roy',
+ 'Sachin Varghese',
+ 'Shubham Phadte',
+ 'Aman Singh',
+ 'Lakshmi Damesya',
+ 'JagDish Pampad',
+ 'Agasti Tari',
+ 'Vidhula Pednekar',
+ 'Rajesh Gureliya',
+ 'Tanvi Kakodkar',
+ 'Lakshadeep Naik',
+ 'Palaash Gaunekar',
+ 'Nitish Yadav',
+ 'ShAch NuTul',
+ 'Dharma Naik Boukya']</pre></div></div></div></div><div class="cell border-box-sizing code_cell vbox" tabindex="2"><div class="input hbox"><div class="prompt input_prompt">In&nbsp;[88]:</div><div class="input_area box-flex1"><div class="CodeMirror"><div style="overflow: hidden; position: relative; width: 1px; height: 0px; top: 0px; left: 0px;"><textarea style="position: absolute; width: 2px;" wrap="off" autocorrect="off" autocapitalize="off"></textarea></div><div class="CodeMirror-scroll cm-s-ipython"><div style="position: relative; height: 29px;"><div style="position: absolute; height: 0; width: 0; overflow: hidden;"><pre><span></span></pre></div><div style="position: relative; top: 0px;"><div class="CodeMirror-gutter" style="display: none;"><div class="CodeMirror-gutter-text"></div></div><div class="CodeMirror-lines"><div style="position: relative" draggable="true"><pre class="CodeMirror-cursor" style="top: 0px; left: 0px;">&nbsp;</pre><div style=""><pre> </pre></div></div></div></div></div></div></div></div></div><div class="output vbox" style=""><div class="hbox output_area"><div class="prompt output_prompt">Out[88]:</div><div class="box_flex1 output_subarea output_text"><pre>['Satish Elavala',
+ 'Ankush Arora',
+ 'Akash Digwal',
+ 'Sagar Sangodkar',
+ 'Mansoor Khan',
+ 'Soumik Sinai Pissurlenkar',
+ 'Anav Sharma',
+ 'Sachin Varghese',
+ 'Gaurav Parihar',
+ 'Aman Singh',
+ 'Abhilash Mandal',
+ 'Nitin Bhandari',
+ 'Prashant Singh',
+ 'Pavankumar Achary',
+ 'Mukul Bandodkar',
+ 'Sanoop Sashindran',
+ 'Nikhil da Rocha',
+ 'Shubham Phadte',
+ 'Agasti Tari',
+ 'Rajesh Gureliya',
+ 'Jayant Bijarnia',
+ 'Amal Roy',
+ 'ShAch NuTul',
+ 'Nitish Yadav',
+ 'JagDish Pampad',
+ 'Tejkaran Charan',
+ 'Sumit Sourabh',
+ 'Lakshmi Damesya',
+ "N'vyn Ram"]</pre></div></div></div></div><div class="cell border-box-sizing code_cell vbox" tabindex="2"><div class="input hbox"><div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div><div class="input_area box-flex1"><div class="CodeMirror"><div style="overflow: hidden; position: relative; width: 1px; height: 0px; top: 0px; left: 0px;"><textarea style="position: absolute; width: 2px;" wrap="off" autocorrect="off" autocapitalize="off"></textarea></div><div class="CodeMirror-scroll cm-s-ipython"><div style="position: relative; height: 29px;"><div style="position: absolute; height: 0; width: 0; overflow: hidden;"><pre><span></span></pre></div><div style="position: relative; top: 0px;"><div class="CodeMirror-gutter" style="display: none;"><div class="CodeMirror-gutter-text"></div></div><div class="CodeMirror-lines"><div style="position: relative" draggable="true"><pre class="CodeMirror-cursor" style="top: 0px; left: 0px;">&nbsp;</pre><div style=""><pre> </pre></div></div></div></div></div></div></div></div></div><div class="output vbox" style="display: none;"></div></div><div class="end_space" style="height: 30%;"></div></div>
+<div id="pager_splitter" class="border-box-sizing ui-widget ui-state-default" title="Click to Show/Hide pager area" style=""></div>
+<div id="pager" class="border-box-sizing ui-widget" style="height: 226.8px; display: none;"></div>
+</div>
+</div>
+<script src="./analysisTools_files/jquery-1.6.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="./analysisTools_files/jquery-ui-1.8.14.custom.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="./analysisTools_files/jquery.autogrow.js" type="text/javascript" charset="utf-8"></script>
+<script src="./analysisTools_files/codemirror.js" charset="utf-8"></script>
+<script src="./analysisTools_files/python.js" charset="utf-8"></script>
+<script src="./analysisTools_files/htmlmixed.js" charset="utf-8"></script>
+<script src="./analysisTools_files/xml.js" charset="utf-8"></script>
+<script src="./analysisTools_files/javascript.js" charset="utf-8"></script>
+<script src="./analysisTools_files/css.js" charset="utf-8"></script>
+<script src="./analysisTools_files/rst.js" charset="utf-8"></script>
+<script src="./analysisTools_files/markdown.js" charset="utf-8"></script>
+<script src="./analysisTools_files/Markdown.Converter.js" charset="utf-8"></script>
+<script src="./analysisTools_files/prettify.js" charset="utf-8"></script>
+<script src="./analysisTools_files/namespace.js" type="text/javascript" charset="utf-8"></script>
+<script src="./analysisTools_files/utils.js" type="text/javascript" charset="utf-8"></script>
+<script src="./analysisTools_files/cell.js" type="text/javascript" charset="utf-8"></script>
+<script src="./analysisTools_files/codecell.js" type="text/javascript" charset="utf-8"></script>
+<script src="./analysisTools_files/textcell.js" type="text/javascript" charset="utf-8"></script>
+<script src="./analysisTools_files/kernel.js" type="text/javascript" charset="utf-8"></script>
+<script src="./analysisTools_files/kernelstatus.js" type="text/javascript" charset="utf-8"></script>
+<script src="./analysisTools_files/layout.js" type="text/javascript" charset="utf-8"></script>
+<script src="./analysisTools_files/savewidget.js" type="text/javascript" charset="utf-8"></script>
+<script src="./analysisTools_files/quickhelp.js" type="text/javascript" charset="utf-8"></script>
+<script src="./analysisTools_files/loginwidget.js" type="text/javascript" charset="utf-8"></script>
+<script src="./analysisTools_files/pager.js" type="text/javascript" charset="utf-8"></script>
+<script src="./analysisTools_files/panelsection.js" type="text/javascript" charset="utf-8"></script>
+<script src="./analysisTools_files/printwidget.js" type="text/javascript" charset="utf-8"></script>
+<script src="./analysisTools_files/leftpanel.js" type="text/javascript" charset="utf-8"></script>
+<script src="./analysisTools_files/notebook.js" type="text/javascript" charset="utf-8"></script>
+<script src="./analysisTools_files/notebookmain.js" type="text/javascript" charset="utf-8"></script>
+
+
+</body></html>

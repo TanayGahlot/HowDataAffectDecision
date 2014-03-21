@@ -1,0 +1,18 @@
+#oggpnosn
+#hkhr
+
+#importing essential
+from pymongo import Connection
+
+#establishing a connection
+c=Connection(host="localhost",port=27017)
+
+#creating a database handle
+try:
+    dbh=c["drMah"]
+except:
+    print "Could not connect to database"
+
+cur=dbh.log.find()
+for rec in cur:
+    print rec["Name"]

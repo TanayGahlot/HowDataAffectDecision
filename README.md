@@ -1,5 +1,6 @@
 HowDataAffectDecision
 =====================
+for presentaion slide visit http://prezi.com/xmbxmbchz64e/?utm_campaign=share&utm_medium=copy&rc=ex0share
 
 Whats the point in storing data?To make decisions. Due
 to advances in communication technology, data can be trans-
